@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="SegTiposervicioEditDlg" widgetVar="SegTiposervicioEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditSegTiposervicioTitle}">
+            <h:form id="SegTiposervicioEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{segTiposervicioController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditSegTiposervicioLabel_idtiposervicio}" for="idtiposervicio" />
+                        <p:inputText id="idtiposervicio" value="#{segTiposervicioController.selected.idtiposervicio}" title="#{bundle.EditSegTiposervicioTitle_idtiposervicio}" required="true" requiredMessage="#{bundle.EditSegTiposervicioRequiredMessage_idtiposervicio}"/>
+                        <p:outputLabel value="#{bundle.EditSegTiposervicioLabel_nombretiposervicio}" for="nombretiposervicio" />
+                        <p:inputText id="nombretiposervicio" value="#{segTiposervicioController.selected.nombretiposervicio}" title="#{bundle.EditSegTiposervicioTitle_nombretiposervicio}" required="true" requiredMessage="#{bundle.EditSegTiposervicioRequiredMessage_nombretiposervicio}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{segTiposervicioController.update}" value="#{bundle.Save}" update="display,:SegTiposervicioListForm:datalist,:growl" oncomplete="handleSubmit(args, 'SegTiposervicioEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="SegTiposervicioEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

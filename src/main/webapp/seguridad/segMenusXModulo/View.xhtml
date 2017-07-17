@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="SegMenusXModuloViewDlg" widgetVar="SegMenusXModuloViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewSegMenusXModuloTitle}">
+            <h:form id="SegMenusXModuloViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{segMenusXModuloController.selected != null}">
+                        <h:outputText value="#{bundle.ViewSegMenusXModuloLabel_nombremenu}"/>
+                        <h:outputText value="#{segMenusXModuloController.selected.nombremenu}" title="#{bundle.ViewSegMenusXModuloTitle_nombremenu}"/>
+                        <h:outputText value="#{bundle.ViewSegMenusXModuloLabel_estadomenu}"/>
+                        <h:outputText value="#{segMenusXModuloController.selected.estadomenu}" title="#{bundle.ViewSegMenusXModuloTitle_estadomenu}"/>
+                        <h:outputText value="#{bundle.ViewSegMenusXModuloLabel_nivel}"/>
+                        <h:outputText value="#{segMenusXModuloController.selected.nivel}" title="#{bundle.ViewSegMenusXModuloTitle_nivel}"/>
+                        <h:outputText value="#{bundle.ViewSegMenusXModuloLabel_secuencia}"/>
+                        <h:outputText value="#{segMenusXModuloController.selected.secuencia}" title="#{bundle.ViewSegMenusXModuloTitle_secuencia}"/>
+                        <h:outputText value="#{bundle.ViewSegMenusXModuloLabel_opcion}"/>
+                        <h:outputText value="#{segMenusXModuloController.selected.opcion}" title="#{bundle.ViewSegMenusXModuloTitle_opcion}"/>
+                        <h:outputText value="#{bundle.ViewSegMenusXModuloLabel_indforma}"/>
+                        <h:outputText value="#{segMenusXModuloController.selected.indforma}" title="#{bundle.ViewSegMenusXModuloTitle_indforma}"/>
+                        <h:outputText value="#{bundle.ViewSegMenusXModuloLabel_codaplic}"/>
+                        <h:outputText value="#{segMenusXModuloController.selected.codaplic}" title="#{bundle.ViewSegMenusXModuloTitle_codaplic}"/>
+                        <h:outputText value="#{bundle.ViewSegMenusXModuloLabel_indaplica}"/>
+                        <h:outputText value="#{segMenusXModuloController.selected.indaplica}" title="#{bundle.ViewSegMenusXModuloTitle_indaplica}"/>
+                        <h:outputText value="#{bundle.ViewSegMenusXModuloLabel_segMntoModulos}"/>
+                        <h:outputText value="#{segMenusXModuloController.selected.segMntoModulos}" title="#{bundle.ViewSegMenusXModuloTitle_segMntoModulos}"/>
+                        <h:outputText value="#{bundle.ViewSegMenusXModuloLabel_segCompany}"/>
+                        <h:outputText value="#{segMenusXModuloController.selected.segCompany}" title="#{bundle.ViewSegMenusXModuloTitle_segCompany}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="SegMenusXModuloViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="SegDepartamentoEditDlg" widgetVar="SegDepartamentoEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditSegDepartamentoTitle}">
+            <h:form id="SegDepartamentoEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{segDepartamentoController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditSegDepartamentoLabel_iddepartamento}" for="iddepartamento" />
+                        <p:inputText id="iddepartamento" value="#{segDepartamentoController.selected.iddepartamento}" title="#{bundle.EditSegDepartamentoTitle_iddepartamento}" required="true" requiredMessage="#{bundle.EditSegDepartamentoRequiredMessage_iddepartamento}"/>
+                        <p:outputLabel value="#{bundle.EditSegDepartamentoLabel_nombredepartamento}" for="nombredepartamento" />
+                        <p:inputText id="nombredepartamento" value="#{segDepartamentoController.selected.nombredepartamento}" title="#{bundle.EditSegDepartamentoTitle_nombredepartamento}" required="true" requiredMessage="#{bundle.EditSegDepartamentoRequiredMessage_nombredepartamento}"/>
+                        <p:outputLabel value="#{bundle.EditSegDepartamentoLabel_idpais}" for="idpais" />
+                        <p:selectOneMenu id="idpais" value="#{segDepartamentoController.selected.idpais}" required="true" requiredMessage="#{bundle.EditSegDepartamentoRequiredMessage_idpais}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{segPaisController.itemsAvailableSelectOne}"
+                                           var="idpaisItem"
+                                           itemValue="#{idpaisItem}" itemLabel="#{idpaisItem.nombrepais}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{segDepartamentoController.update}" value="#{bundle.Save}" update="display,:SegDepartamentoListForm:datalist,:growl" oncomplete="handleSubmit(args, 'SegDepartamentoEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="SegDepartamentoEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

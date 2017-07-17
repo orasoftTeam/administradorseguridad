@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="SegServicioEditDlg" widgetVar="SegServicioEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditSegServicioTitle}">
+            <h:form id="SegServicioEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{segServicioController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditSegServicioLabel_idservicio}" for="idservicio" />
+                        <p:inputText id="idservicio" value="#{segServicioController.selected.idservicio}" title="#{bundle.EditSegServicioTitle_idservicio}" required="true" requiredMessage="#{bundle.EditSegServicioRequiredMessage_idservicio}"/>
+                        <p:outputLabel value="#{bundle.EditSegServicioLabel_nombreservicio}" for="nombreservicio" />
+                        <p:inputText id="nombreservicio" value="#{segServicioController.selected.nombreservicio}" title="#{bundle.EditSegServicioTitle_nombreservicio}" required="true" requiredMessage="#{bundle.EditSegServicioRequiredMessage_nombreservicio}"/>
+                        <p:outputLabel value="#{bundle.EditSegServicioLabel_requisitos}" for="requisitos" />
+                        <p:inputText id="requisitos" value="#{segServicioController.selected.requisitos}" title="#{bundle.EditSegServicioTitle_requisitos}" required="true" requiredMessage="#{bundle.EditSegServicioRequiredMessage_requisitos}"/>
+                        <p:outputLabel value="#{bundle.EditSegServicioLabel_idtiposervicio}" for="idtiposervicio" />
+                        <p:selectOneMenu id="idtiposervicio" value="#{segServicioController.selected.idtiposervicio}" required="true" requiredMessage="#{bundle.EditSegServicioRequiredMessage_idtiposervicio}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{segTiposervicioController.itemsAvailableSelectOne}"
+                                           var="idtiposervicioItem"
+                                           itemValue="#{idtiposervicioItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{segServicioController.update}" value="#{bundle.Save}" update="display,:SegServicioListForm:datalist,:growl" oncomplete="handleSubmit(args, 'SegServicioEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="SegServicioEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

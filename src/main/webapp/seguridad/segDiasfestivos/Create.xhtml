@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="SegDiasfestivosCreateDlg" widgetVar="SegDiasfestivosCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateSegDiasfestivosTitle}">
+            <h:form id="SegDiasfestivosCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{segDiasfestivosController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateSegDiasfestivosLabel_iddiafestivos}" for="iddiafestivos" />
+                        <p:inputText id="iddiafestivos" value="#{segDiasfestivosController.selected.iddiafestivos}" title="#{bundle.CreateSegDiasfestivosTitle_iddiafestivos}" required="true" requiredMessage="#{bundle.CreateSegDiasfestivosRequiredMessage_iddiafestivos}"/>
+                        <p:outputLabel value="#{bundle.CreateSegDiasfestivosLabel_nombrediafestivos}" for="nombrediafestivos" />
+                        <p:inputText id="nombrediafestivos" value="#{segDiasfestivosController.selected.nombrediafestivos}" title="#{bundle.CreateSegDiasfestivosTitle_nombrediafestivos}" required="true" requiredMessage="#{bundle.CreateSegDiasfestivosRequiredMessage_nombrediafestivos}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{segDiasfestivosController.create}" value="#{bundle.Save}" update="display,:SegDiasfestivosListForm:datalist,:growl" oncomplete="handleSubmit(args,'SegDiasfestivosCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="SegDiasfestivosCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="SegPaisViewDlg" widgetVar="SegPaisViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewSegPaisTitle}">
+            <h:form id="SegPaisViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{segPaisController.selected != null}">
+                        <h:outputText value="#{bundle.ViewSegPaisLabel_idpais}"/>
+                        <h:outputText value="#{segPaisController.selected.idpais}" title="#{bundle.ViewSegPaisTitle_idpais}"/>
+                        <h:outputText value="#{bundle.ViewSegPaisLabel_nombrepais}"/>
+                        <h:outputText value="#{segPaisController.selected.nombrepais}" title="#{bundle.ViewSegPaisTitle_nombrepais}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="SegPaisViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

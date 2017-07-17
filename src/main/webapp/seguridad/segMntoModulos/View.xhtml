@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="SegMntoModulosViewDlg" widgetVar="SegMntoModulosViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewSegMntoModulosTitle}">
+            <h:form id="SegMntoModulosViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{segMntoModulosController.selected != null}">
+                        <h:outputText value="#{bundle.ViewSegMntoModulosLabel_idmodulo}"/>
+                        <h:outputText value="#{segMntoModulosController.selected.idmodulo}" title="#{bundle.ViewSegMntoModulosTitle_idmodulo}"/>
+                        <h:outputText value="#{bundle.ViewSegMntoModulosLabel_nombremodulo}"/>
+                        <h:outputText value="#{segMntoModulosController.selected.nombremodulo}" title="#{bundle.ViewSegMntoModulosTitle_nombremodulo}"/>
+                        <h:outputText value="#{bundle.ViewSegMntoModulosLabel_estadomodulo}"/>
+                        <h:outputText value="#{segMntoModulosController.selected.estadomodulo}" title="#{bundle.ViewSegMntoModulosTitle_estadomodulo}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="SegMntoModulosViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

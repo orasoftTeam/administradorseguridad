@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="SegRolcompanyEditDlg" widgetVar="SegRolcompanyEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditSegRolcompanyTitle}">
+            <h:form id="SegRolcompanyEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{segRolcompanyController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditSegRolcompanyLabel_idrolcia}" for="idrolcia" />
+                        <p:inputText id="idrolcia" value="#{segRolcompanyController.selected.idrolcia}" title="#{bundle.EditSegRolcompanyTitle_idrolcia}" required="true" requiredMessage="#{bundle.EditSegRolcompanyRequiredMessage_idrolcia}"/>
+                        <p:outputLabel value="#{bundle.EditSegRolcompanyLabel_nombrerolcia}" for="nombrerolcia" />
+                        <p:inputText id="nombrerolcia" value="#{segRolcompanyController.selected.nombrerolcia}" title="#{bundle.EditSegRolcompanyTitle_nombrerolcia}" />
+                        <p:outputLabel value="#{bundle.EditSegRolcompanyLabel_estadorolcia}" for="estadorolcia" />
+                        <p:inputText id="estadorolcia" value="#{segRolcompanyController.selected.estadorolcia}" title="#{bundle.EditSegRolcompanyTitle_estadorolcia}" />
+                        <p:outputLabel value="#{bundle.EditSegRolcompanyLabel_idcompany}" for="idcompany" />
+                        <p:selectOneMenu id="idcompany" value="#{segRolcompanyController.selected.idcompany}" required="true" requiredMessage="#{bundle.EditSegRolcompanyRequiredMessage_idcompany}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{segCompanyController.itemsAvailableSelectOne}"
+                                           var="idcompanyItem"
+                                           itemValue="#{idcompanyItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{segRolcompanyController.update}" value="#{bundle.Save}" update="display,:SegRolcompanyListForm:datalist,:growl" oncomplete="handleSubmit(args, 'SegRolcompanyEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="SegRolcompanyEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

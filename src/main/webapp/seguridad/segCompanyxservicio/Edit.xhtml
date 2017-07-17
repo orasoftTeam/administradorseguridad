@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="SegCompanyxservicioEditDlg" widgetVar="SegCompanyxservicioEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditSegCompanyxservicioTitle}">
+            <h:form id="SegCompanyxservicioEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{segCompanyxservicioController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditSegCompanyxservicioLabel_idcompanyxservicio}" for="idcompanyxservicio" />
+                        <p:inputText id="idcompanyxservicio" value="#{segCompanyxservicioController.selected.idcompanyxservicio}" title="#{bundle.EditSegCompanyxservicioTitle_idcompanyxservicio}" required="true" requiredMessage="#{bundle.EditSegCompanyxservicioRequiredMessage_idcompanyxservicio}"/>
+                        <p:outputLabel value="#{bundle.EditSegCompanyxservicioLabel_preciocomxservicio}" for="preciocomxservicio" />
+                        <p:inputText id="preciocomxservicio" value="#{segCompanyxservicioController.selected.preciocomxservicio}" title="#{bundle.EditSegCompanyxservicioTitle_preciocomxservicio}" required="true" requiredMessage="#{bundle.EditSegCompanyxservicioRequiredMessage_preciocomxservicio}"/>
+                        <p:outputLabel value="#{bundle.EditSegCompanyxservicioLabel_horariocomxservicio}" for="horariocomxservicio" />
+                        <p:inputText id="horariocomxservicio" value="#{segCompanyxservicioController.selected.horariocomxservicio}" title="#{bundle.EditSegCompanyxservicioTitle_horariocomxservicio}" required="true" requiredMessage="#{bundle.EditSegCompanyxservicioRequiredMessage_horariocomxservicio}"/>
+                        <p:outputLabel value="#{bundle.EditSegCompanyxservicioLabel_estadoservicio}" for="estadoservicio" />
+                        <p:inputText id="estadoservicio" value="#{segCompanyxservicioController.selected.estadoservicio}" title="#{bundle.EditSegCompanyxservicioTitle_estadoservicio}" required="true" requiredMessage="#{bundle.EditSegCompanyxservicioRequiredMessage_estadoservicio}"/>
+                        <p:outputLabel value="#{bundle.EditSegCompanyxservicioLabel_idservicio}" for="idservicio" />
+                        <p:selectOneMenu id="idservicio" value="#{segCompanyxservicioController.selected.idservicio}" required="true" requiredMessage="#{bundle.EditSegCompanyxservicioRequiredMessage_idservicio}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{segServicioController.itemsAvailableSelectOne}"
+                                           var="idservicioItem"
+                                           itemValue="#{idservicioItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditSegCompanyxservicioLabel_idcompany}" for="idcompany" />
+                        <p:selectOneMenu id="idcompany" value="#{segCompanyxservicioController.selected.idcompany}" required="true" requiredMessage="#{bundle.EditSegCompanyxservicioRequiredMessage_idcompany}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{segCompanyController.itemsAvailableSelectOne}"
+                                           var="idcompanyItem"
+                                           itemValue="#{idcompanyItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{segCompanyxservicioController.update}" value="#{bundle.Save}" update="display,:SegCompanyxservicioListForm:datalist,:growl" oncomplete="handleSubmit(args, 'SegCompanyxservicioEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="SegCompanyxservicioEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

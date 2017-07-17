@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="SegRubroViewDlg" widgetVar="SegRubroViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewSegRubroTitle}">
+            <h:form id="SegRubroViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{segRubroController.selected != null}">
+                        <h:outputText value="#{bundle.ViewSegRubroLabel_idrubro}"/>
+                        <h:outputText value="#{segRubroController.selected.idrubro}" title="#{bundle.ViewSegRubroTitle_idrubro}"/>
+                        <h:outputText value="#{bundle.ViewSegRubroLabel_nombrerubro}"/>
+                        <h:outputText value="#{segRubroController.selected.nombrerubro}" title="#{bundle.ViewSegRubroTitle_nombrerubro}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="SegRubroViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

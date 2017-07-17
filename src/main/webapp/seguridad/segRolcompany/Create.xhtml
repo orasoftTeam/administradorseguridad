@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="SegRolcompanyCreateDlg" widgetVar="SegRolcompanyCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateSegRolcompanyTitle}">
+            <h:form id="SegRolcompanyCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{segRolcompanyController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateSegRolcompanyLabel_idrolcia}" for="idrolcia" />
+                        <p:inputText id="idrolcia" value="#{segRolcompanyController.selected.idrolcia}" title="#{bundle.CreateSegRolcompanyTitle_idrolcia}" required="true" requiredMessage="#{bundle.CreateSegRolcompanyRequiredMessage_idrolcia}"/>
+                        <p:outputLabel value="#{bundle.CreateSegRolcompanyLabel_nombrerolcia}" for="nombrerolcia" />
+                        <p:inputText id="nombrerolcia" value="#{segRolcompanyController.selected.nombrerolcia}" title="#{bundle.CreateSegRolcompanyTitle_nombrerolcia}" />
+                        <p:outputLabel value="#{bundle.CreateSegRolcompanyLabel_estadorolcia}" for="estadorolcia" />
+                        <p:inputText id="estadorolcia" value="#{segRolcompanyController.selected.estadorolcia}" title="#{bundle.CreateSegRolcompanyTitle_estadorolcia}" />
+                        <p:outputLabel value="#{bundle.CreateSegRolcompanyLabel_idcompany}" for="idcompany" />
+                        <p:selectOneMenu id="idcompany" value="#{segRolcompanyController.selected.idcompany}" required="true" requiredMessage="#{bundle.EditSegRolcompanyRequiredMessage_idcompany}">
+                            <f:selectItems value="#{segCompanyController.itemsAvailableSelectOne}"
+                                           var="idcompanyItem"
+                                           itemValue="#{idcompanyItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{segRolcompanyController.create}" value="#{bundle.Save}" update="display,:SegRolcompanyListForm:datalist,:growl" oncomplete="handleSubmit(args,'SegRolcompanyCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="SegRolcompanyCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

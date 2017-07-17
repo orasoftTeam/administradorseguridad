@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListSegCompanyTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            <h:form id="SegCompanyListForm">
+                <p:panel header="#{bundle.ListSegCompanyTitle}">
+                    <p:dataTable id="datalist" value="#{segCompanyController.items}" var="item"
+                                 selectionMode="single" selection="#{segCompanyController.selected}"
+                                 paginator="true"
+                                 rowKey="#{item.idcompany}"
+                                 rows="10"
+                                 rowsPerPageTemplate="10,20,30,40,50"
+                                 >
+
+                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegCompanyTitle_idcompany}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idcompany}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegCompanyTitle_nombrecompany}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombrecompany}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegCompanyTitle_direccioncompany}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.direccioncompany}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegCompanyTitle_correocompany}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.correocompany}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegCompanyTitle_paginaweb}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.paginaweb}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegCompanyTitle_nivelcompany}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nivelcompany}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegCompanyTitle_numerocompany}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numerocompany}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegCompanyTitle_rutalogocompany}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.rutalogocompany}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegCompanyTitle_latitudcompany}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.latitudcompany}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegCompanyTitle_longitudcompany}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.longitudcompany}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegCompanyTitle_diainiciocompany}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.diainiciocompany}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegCompanyTitle_diafincompany}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.diafincompany}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegCompanyTitle_horainiciocompany}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.horainiciocompany}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegCompanyTitle_horafincompany}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.horafincompany}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegCompanyTitle_horainicio2company}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.horainicio2company}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegCompanyTitle_horafin2company}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.horafin2company}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegCompanyTitle_estadocompany}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.estadocompany}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegCompanyTitle_visioncompany}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.visioncompany}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegCompanyTitle_misioncompany}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.misioncompany}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegCompanyTitle_descripcioncompany}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.descripcioncompany}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegCompanyTitle_idrubro}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idrubro}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegCompanyTitle_idmunicipio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idmunicipio}"/>
+                        </p:column>
+                        <f:facet name="footer">
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{segCompanyController.prepareCreate}" update=":SegCompanyCreateForm" oncomplete="PF('SegCompanyCreateDialog').show()"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":SegCompanyViewForm" oncomplete="PF('SegCompanyViewDialog').show()" disabled="#{empty segCompanyController.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":SegCompanyEditForm" oncomplete="PF('SegCompanyEditDialog').show()" disabled="#{empty segCompanyController.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{segCompanyController.destroy}" update=":growl,datalist" disabled="#{empty segCompanyController.selected}"/>
+                        </f:facet>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+
+            <ui:include src="Create.xhtml"/>
+            <ui:include src="Edit.xhtml"/>
+            <ui:include src="View.xhtml"/>
+        </ui:define>
+    </ui:composition>
+
+</html>

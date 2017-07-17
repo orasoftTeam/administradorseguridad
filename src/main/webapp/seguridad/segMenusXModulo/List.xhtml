@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListSegMenusXModuloTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            <h:form id="SegMenusXModuloListForm">
+                <p:panel header="#{bundle.ListSegMenusXModuloTitle}">
+                    <p:dataTable id="datalist" value="#{segMenusXModuloController.items}" var="item"
+                                 selectionMode="single" selection="#{segMenusXModuloController.selected}"
+                                 paginator="true"
+                                 rowKey="#{item.segMenusXModuloPK}"
+                                 rows="10"
+                                 rowsPerPageTemplate="10,20,30,40,50"
+                                 >
+
+                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegMenusXModuloTitle_nombremenu}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombremenu}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegMenusXModuloTitle_estadomenu}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.estadomenu}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegMenusXModuloTitle_nivel}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nivel}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegMenusXModuloTitle_secuencia}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.secuencia}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegMenusXModuloTitle_opcion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.opcion}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegMenusXModuloTitle_indforma}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.indforma}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegMenusXModuloTitle_codaplic}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codaplic}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegMenusXModuloTitle_indaplica}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.indaplica}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegMenusXModuloTitle_segMntoModulos}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.segMntoModulos}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegMenusXModuloTitle_segCompany}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.segCompany}"/>
+                        </p:column>
+                        <f:facet name="footer">
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{segMenusXModuloController.prepareCreate}" update=":SegMenusXModuloCreateForm" oncomplete="PF('SegMenusXModuloCreateDialog').show()"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":SegMenusXModuloViewForm" oncomplete="PF('SegMenusXModuloViewDialog').show()" disabled="#{empty segMenusXModuloController.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":SegMenusXModuloEditForm" oncomplete="PF('SegMenusXModuloEditDialog').show()" disabled="#{empty segMenusXModuloController.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{segMenusXModuloController.destroy}" update=":growl,datalist" disabled="#{empty segMenusXModuloController.selected}"/>
+                        </f:facet>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+
+            <ui:include src="Create.xhtml"/>
+            <ui:include src="Edit.xhtml"/>
+            <ui:include src="View.xhtml"/>
+        </ui:define>
+    </ui:composition>
+
+</html>

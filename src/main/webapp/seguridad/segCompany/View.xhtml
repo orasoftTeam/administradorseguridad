@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="SegCompanyViewDlg" widgetVar="SegCompanyViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewSegCompanyTitle}">
+            <h:form id="SegCompanyViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{segCompanyController.selected != null}">
+                        <h:outputText value="#{bundle.ViewSegCompanyLabel_idcompany}"/>
+                        <h:outputText value="#{segCompanyController.selected.idcompany}" title="#{bundle.ViewSegCompanyTitle_idcompany}"/>
+                        <h:outputText value="#{bundle.ViewSegCompanyLabel_nombrecompany}"/>
+                        <h:outputText value="#{segCompanyController.selected.nombrecompany}" title="#{bundle.ViewSegCompanyTitle_nombrecompany}"/>
+                        <h:outputText value="#{bundle.ViewSegCompanyLabel_direccioncompany}"/>
+                        <h:outputText value="#{segCompanyController.selected.direccioncompany}" title="#{bundle.ViewSegCompanyTitle_direccioncompany}"/>
+                        <h:outputText value="#{bundle.ViewSegCompanyLabel_correocompany}"/>
+                        <h:outputText value="#{segCompanyController.selected.correocompany}" title="#{bundle.ViewSegCompanyTitle_correocompany}"/>
+                        <h:outputText value="#{bundle.ViewSegCompanyLabel_paginaweb}"/>
+                        <h:outputText value="#{segCompanyController.selected.paginaweb}" title="#{bundle.ViewSegCompanyTitle_paginaweb}"/>
+                        <h:outputText value="#{bundle.ViewSegCompanyLabel_nivelcompany}"/>
+                        <h:outputText value="#{segCompanyController.selected.nivelcompany}" title="#{bundle.ViewSegCompanyTitle_nivelcompany}"/>
+                        <h:outputText value="#{bundle.ViewSegCompanyLabel_numerocompany}"/>
+                        <h:outputText value="#{segCompanyController.selected.numerocompany}" title="#{bundle.ViewSegCompanyTitle_numerocompany}"/>
+                        <h:outputText value="#{bundle.ViewSegCompanyLabel_rutalogocompany}"/>
+                        <h:outputText value="#{segCompanyController.selected.rutalogocompany}" title="#{bundle.ViewSegCompanyTitle_rutalogocompany}"/>
+                        <h:outputText value="#{bundle.ViewSegCompanyLabel_latitudcompany}"/>
+                        <h:outputText value="#{segCompanyController.selected.latitudcompany}" title="#{bundle.ViewSegCompanyTitle_latitudcompany}"/>
+                        <h:outputText value="#{bundle.ViewSegCompanyLabel_longitudcompany}"/>
+                        <h:outputText value="#{segCompanyController.selected.longitudcompany}" title="#{bundle.ViewSegCompanyTitle_longitudcompany}"/>
+                        <h:outputText value="#{bundle.ViewSegCompanyLabel_diainiciocompany}"/>
+                        <h:outputText value="#{segCompanyController.selected.diainiciocompany}" title="#{bundle.ViewSegCompanyTitle_diainiciocompany}"/>
+                        <h:outputText value="#{bundle.ViewSegCompanyLabel_diafincompany}"/>
+                        <h:outputText value="#{segCompanyController.selected.diafincompany}" title="#{bundle.ViewSegCompanyTitle_diafincompany}"/>
+                        <h:outputText value="#{bundle.ViewSegCompanyLabel_horainiciocompany}"/>
+                        <h:outputText value="#{segCompanyController.selected.horainiciocompany}" title="#{bundle.ViewSegCompanyTitle_horainiciocompany}"/>
+                        <h:outputText value="#{bundle.ViewSegCompanyLabel_horafincompany}"/>
+                        <h:outputText value="#{segCompanyController.selected.horafincompany}" title="#{bundle.ViewSegCompanyTitle_horafincompany}"/>
+                        <h:outputText value="#{bundle.ViewSegCompanyLabel_horainicio2company}"/>
+                        <h:outputText value="#{segCompanyController.selected.horainicio2company}" title="#{bundle.ViewSegCompanyTitle_horainicio2company}"/>
+                        <h:outputText value="#{bundle.ViewSegCompanyLabel_horafin2company}"/>
+                        <h:outputText value="#{segCompanyController.selected.horafin2company}" title="#{bundle.ViewSegCompanyTitle_horafin2company}"/>
+                        <h:outputText value="#{bundle.ViewSegCompanyLabel_estadocompany}"/>
+                        <h:outputText value="#{segCompanyController.selected.estadocompany}" title="#{bundle.ViewSegCompanyTitle_estadocompany}"/>
+                        <h:outputText value="#{bundle.ViewSegCompanyLabel_visioncompany}"/>
+                        <h:outputText value="#{segCompanyController.selected.visioncompany}" title="#{bundle.ViewSegCompanyTitle_visioncompany}"/>
+                        <h:outputText value="#{bundle.ViewSegCompanyLabel_misioncompany}"/>
+                        <h:outputText value="#{segCompanyController.selected.misioncompany}" title="#{bundle.ViewSegCompanyTitle_misioncompany}"/>
+                        <h:outputText value="#{bundle.ViewSegCompanyLabel_descripcioncompany}"/>
+                        <h:outputText value="#{segCompanyController.selected.descripcioncompany}" title="#{bundle.ViewSegCompanyTitle_descripcioncompany}"/>
+                        <h:outputText value="#{bundle.ViewSegCompanyLabel_idrubro}"/>
+                        <h:outputText value="#{segCompanyController.selected.idrubro}" title="#{bundle.ViewSegCompanyTitle_idrubro}"/>
+                        <h:outputText value="#{bundle.ViewSegCompanyLabel_idmunicipio}"/>
+                        <h:outputText value="#{segCompanyController.selected.idmunicipio}" title="#{bundle.ViewSegCompanyTitle_idmunicipio}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="SegCompanyViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="SegModulosXRolCreateDlg" widgetVar="SegModulosXRolCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateSegModulosXRolTitle}">
+            <h:form id="SegModulosXRolCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{segModulosXRolController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateSegModulosXRolLabel_secuencia}" for="secuencia" />
+                        <p:inputText id="secuencia" value="#{segModulosXRolController.selected.secuencia}" title="#{bundle.CreateSegModulosXRolTitle_secuencia}" />
+                        <p:outputLabel value="#{bundle.CreateSegModulosXRolLabel_nivel}" for="nivel" />
+                        <p:inputText id="nivel" value="#{segModulosXRolController.selected.nivel}" title="#{bundle.CreateSegModulosXRolTitle_nivel}" />
+                        <p:outputLabel value="#{bundle.CreateSegModulosXRolLabel_indforma}" for="indforma" />
+                        <p:inputText id="indforma" value="#{segModulosXRolController.selected.indforma}" title="#{bundle.CreateSegModulosXRolTitle_indforma}" />
+                        <p:outputLabel value="#{bundle.CreateSegModulosXRolLabel_opcion}" for="opcion" />
+                        <p:inputText id="opcion" value="#{segModulosXRolController.selected.opcion}" title="#{bundle.CreateSegModulosXRolTitle_opcion}" />
+                        <p:outputLabel value="#{bundle.CreateSegModulosXRolLabel_codaplic}" for="codaplic" />
+                        <p:inputText id="codaplic" value="#{segModulosXRolController.selected.codaplic}" title="#{bundle.CreateSegModulosXRolTitle_codaplic}" />
+                        <p:outputLabel value="#{bundle.CreateSegModulosXRolLabel_segRolcompany}" for="segRolcompany" />
+                        <p:selectOneMenu id="segRolcompany" value="#{segModulosXRolController.selected.segRolcompany}" required="true" requiredMessage="#{bundle.EditSegModulosXRolRequiredMessage_segRolcompany}">
+                            <f:selectItems value="#{segRolcompanyController.itemsAvailableSelectOne}"
+                                           var="segRolcompanyItem"
+                                           itemValue="#{segRolcompanyItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateSegModulosXRolLabel_segMntoModulos}" for="segMntoModulos" />
+                        <p:selectOneMenu id="segMntoModulos" value="#{segModulosXRolController.selected.segMntoModulos}" required="true" requiredMessage="#{bundle.EditSegModulosXRolRequiredMessage_segMntoModulos}">
+                            <f:selectItems value="#{segMntoModulosController.itemsAvailableSelectOne}"
+                                           var="segMntoModulosItem"
+                                           itemValue="#{segMntoModulosItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateSegModulosXRolLabel_segCompany}" for="segCompany" />
+                        <p:selectOneMenu id="segCompany" value="#{segModulosXRolController.selected.segCompany}" required="true" requiredMessage="#{bundle.EditSegModulosXRolRequiredMessage_segCompany}">
+                            <f:selectItems value="#{segCompanyController.itemsAvailableSelectOne}"
+                                           var="segCompanyItem"
+                                           itemValue="#{segCompanyItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{segModulosXRolController.create}" value="#{bundle.Save}" update="display,:SegModulosXRolListForm:datalist,:growl" oncomplete="handleSubmit(args,'SegModulosXRolCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="SegModulosXRolCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

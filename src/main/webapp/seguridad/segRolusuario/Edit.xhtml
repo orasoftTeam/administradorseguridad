@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="SegRolusuarioEditDlg" widgetVar="SegRolusuarioEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditSegRolusuarioTitle}">
+            <h:form id="SegRolusuarioEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{segRolusuarioController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditSegRolusuarioLabel_idrolusuario}" for="idrolusuario" />
+                        <p:inputText id="idrolusuario" value="#{segRolusuarioController.selected.idrolusuario}" title="#{bundle.EditSegRolusuarioTitle_idrolusuario}" required="true" requiredMessage="#{bundle.EditSegRolusuarioRequiredMessage_idrolusuario}"/>
+                        <p:outputLabel value="#{bundle.EditSegRolusuarioLabel_idusuario}" for="idusuario" />
+                        <p:selectOneMenu id="idusuario" value="#{segRolusuarioController.selected.idusuario}" required="true" requiredMessage="#{bundle.EditSegRolusuarioRequiredMessage_idusuario}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{segUsuarioController.itemsAvailableSelectOne}"
+                                           var="idusuarioItem"
+                                           itemValue="#{idusuarioItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditSegRolusuarioLabel_idrol}" for="idrol" />
+                        <p:selectOneMenu id="idrol" value="#{segRolusuarioController.selected.idrol}" required="true" requiredMessage="#{bundle.EditSegRolusuarioRequiredMessage_idrol}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{segRolController.itemsAvailableSelectOne}"
+                                           var="idrolItem"
+                                           itemValue="#{idrolItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{segRolusuarioController.update}" value="#{bundle.Save}" update="display,:SegRolusuarioListForm:datalist,:growl" oncomplete="handleSubmit(args, 'SegRolusuarioEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="SegRolusuarioEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

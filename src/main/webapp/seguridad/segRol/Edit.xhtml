@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="SegRolEditDlg" widgetVar="SegRolEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditSegRolTitle}">
+            <h:form id="SegRolEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{segRolController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditSegRolLabel_idrol}" for="idrol" />
+                        <p:inputText id="idrol" value="#{segRolController.selected.idrol}" title="#{bundle.EditSegRolTitle_idrol}" required="true" requiredMessage="#{bundle.EditSegRolRequiredMessage_idrol}"/>
+                        <p:outputLabel value="#{bundle.EditSegRolLabel_nombrerol}" for="nombrerol" />
+                        <p:inputText id="nombrerol" value="#{segRolController.selected.nombrerol}" title="#{bundle.EditSegRolTitle_nombrerol}" required="true" requiredMessage="#{bundle.EditSegRolRequiredMessage_nombrerol}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{segRolController.update}" value="#{bundle.Save}" update="display,:SegRolListForm:datalist,:growl" oncomplete="handleSubmit(args, 'SegRolEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="SegRolEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

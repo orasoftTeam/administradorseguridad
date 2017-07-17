@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="SegDepartamentoViewDlg" widgetVar="SegDepartamentoViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewSegDepartamentoTitle}">
+            <h:form id="SegDepartamentoViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{segDepartamentoController.selected != null}">
+                        <h:outputText value="#{bundle.ViewSegDepartamentoLabel_iddepartamento}"/>
+                        <h:outputText value="#{segDepartamentoController.selected.iddepartamento}" title="#{bundle.ViewSegDepartamentoTitle_iddepartamento}"/>
+                        <h:outputText value="#{bundle.ViewSegDepartamentoLabel_nombredepartamento}"/>
+                        <h:outputText value="#{segDepartamentoController.selected.nombredepartamento}" title="#{bundle.ViewSegDepartamentoTitle_nombredepartamento}"/>
+                        <h:outputText value="#{bundle.ViewSegDepartamentoLabel_idpais}"/>
+                        <h:outputText value="#{segDepartamentoController.selected.idpais}" title="#{bundle.ViewSegDepartamentoTitle_idpais}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="SegDepartamentoViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

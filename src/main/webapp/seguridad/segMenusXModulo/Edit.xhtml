@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="SegMenusXModuloEditDlg" widgetVar="SegMenusXModuloEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditSegMenusXModuloTitle}">
+            <h:form id="SegMenusXModuloEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{segMenusXModuloController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditSegMenusXModuloLabel_nombremenu}" for="nombremenu" />
+                        <p:inputText id="nombremenu" value="#{segMenusXModuloController.selected.nombremenu}" title="#{bundle.EditSegMenusXModuloTitle_nombremenu}" />
+                        <p:outputLabel value="#{bundle.EditSegMenusXModuloLabel_estadomenu}" for="estadomenu" />
+                        <p:inputText id="estadomenu" value="#{segMenusXModuloController.selected.estadomenu}" title="#{bundle.EditSegMenusXModuloTitle_estadomenu}" />
+                        <p:outputLabel value="#{bundle.EditSegMenusXModuloLabel_nivel}" for="nivel" />
+                        <p:inputText id="nivel" value="#{segMenusXModuloController.selected.nivel}" title="#{bundle.EditSegMenusXModuloTitle_nivel}" />
+                        <p:outputLabel value="#{bundle.EditSegMenusXModuloLabel_secuencia}" for="secuencia" />
+                        <p:inputText id="secuencia" value="#{segMenusXModuloController.selected.secuencia}" title="#{bundle.EditSegMenusXModuloTitle_secuencia}" />
+                        <p:outputLabel value="#{bundle.EditSegMenusXModuloLabel_opcion}" for="opcion" />
+                        <p:inputText id="opcion" value="#{segMenusXModuloController.selected.opcion}" title="#{bundle.EditSegMenusXModuloTitle_opcion}" />
+                        <p:outputLabel value="#{bundle.EditSegMenusXModuloLabel_indforma}" for="indforma" />
+                        <p:inputText id="indforma" value="#{segMenusXModuloController.selected.indforma}" title="#{bundle.EditSegMenusXModuloTitle_indforma}" />
+                        <p:outputLabel value="#{bundle.EditSegMenusXModuloLabel_codaplic}" for="codaplic" />
+                        <p:inputText id="codaplic" value="#{segMenusXModuloController.selected.codaplic}" title="#{bundle.EditSegMenusXModuloTitle_codaplic}" />
+                        <p:outputLabel value="#{bundle.EditSegMenusXModuloLabel_indaplica}" for="indaplica" />
+                        <p:inputText id="indaplica" value="#{segMenusXModuloController.selected.indaplica}" title="#{bundle.EditSegMenusXModuloTitle_indaplica}" />
+                        <p:outputLabel value="#{bundle.EditSegMenusXModuloLabel_segMntoModulos}" for="segMntoModulos" />
+                        <p:selectOneMenu id="segMntoModulos" value="#{segMenusXModuloController.selected.segMntoModulos}" required="true" requiredMessage="#{bundle.EditSegMenusXModuloRequiredMessage_segMntoModulos}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{segMntoModulosController.itemsAvailableSelectOne}"
+                                           var="segMntoModulosItem"
+                                           itemValue="#{segMntoModulosItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditSegMenusXModuloLabel_segCompany}" for="segCompany" />
+                        <p:selectOneMenu id="segCompany" value="#{segMenusXModuloController.selected.segCompany}" required="true" requiredMessage="#{bundle.EditSegMenusXModuloRequiredMessage_segCompany}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{segCompanyController.itemsAvailableSelectOne}"
+                                           var="segCompanyItem"
+                                           itemValue="#{segCompanyItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{segMenusXModuloController.update}" value="#{bundle.Save}" update="display,:SegMenusXModuloListForm:datalist,:growl" oncomplete="handleSubmit(args, 'SegMenusXModuloEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="SegMenusXModuloEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

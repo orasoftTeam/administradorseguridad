@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="SegUsuarioXCiaEditDlg" widgetVar="SegUsuarioXCiaEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditSegUsuarioXCiaTitle}">
+            <h:form id="SegUsuarioXCiaEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{segUsuarioXCiaController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditSegUsuarioXCiaLabel_nombreUsuario}" for="nombreUsuario" />
+                        <p:inputText id="nombreUsuario" value="#{segUsuarioXCiaController.selected.nombreUsuario}" title="#{bundle.EditSegUsuarioXCiaTitle_nombreUsuario}" />
+                        <p:outputLabel value="#{bundle.EditSegUsuarioXCiaLabel_status}" for="status" />
+                        <p:inputText id="status" value="#{segUsuarioXCiaController.selected.status}" title="#{bundle.EditSegUsuarioXCiaTitle_status}" />
+                        <p:outputLabel value="#{bundle.EditSegUsuarioXCiaLabel_segUsuario}" for="segUsuario" />
+                        <p:selectOneMenu id="segUsuario" value="#{segUsuarioXCiaController.selected.segUsuario}" required="true" requiredMessage="#{bundle.EditSegUsuarioXCiaRequiredMessage_segUsuario}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{segUsuarioController.itemsAvailableSelectOne}"
+                                           var="segUsuarioItem"
+                                           itemValue="#{segUsuarioItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditSegUsuarioXCiaLabel_segCompany}" for="segCompany" />
+                        <p:selectOneMenu id="segCompany" value="#{segUsuarioXCiaController.selected.segCompany}" required="true" requiredMessage="#{bundle.EditSegUsuarioXCiaRequiredMessage_segCompany}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{segCompanyController.itemsAvailableSelectOne}"
+                                           var="segCompanyItem"
+                                           itemValue="#{segCompanyItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{segUsuarioXCiaController.update}" value="#{bundle.Save}" update="display,:SegUsuarioXCiaListForm:datalist,:growl" oncomplete="handleSubmit(args, 'SegUsuarioXCiaEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="SegUsuarioXCiaEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="SegPaisEditDlg" widgetVar="SegPaisEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditSegPaisTitle}">
+            <h:form id="SegPaisEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{segPaisController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditSegPaisLabel_idpais}" for="idpais" />
+                        <p:inputText id="idpais" value="#{segPaisController.selected.idpais}" title="#{bundle.EditSegPaisTitle_idpais}" required="true" requiredMessage="#{bundle.EditSegPaisRequiredMessage_idpais}"/>
+                        <p:outputLabel value="#{bundle.EditSegPaisLabel_nombrepais}" for="nombrepais" />
+                        <p:inputText id="nombrepais" value="#{segPaisController.selected.nombrepais}" title="#{bundle.EditSegPaisTitle_nombrepais}" required="true" requiredMessage="#{bundle.EditSegPaisRequiredMessage_nombrepais}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{segPaisController.update}" value="#{bundle.Save}" update="display,:SegPaisListForm:datalist,:growl" oncomplete="handleSubmit(args, 'SegPaisEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="SegPaisEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

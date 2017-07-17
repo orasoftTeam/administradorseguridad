@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="SegCompanyxdiasfestivosCreateDlg" widgetVar="SegCompanyxdiasfestivosCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateSegCompanyxdiasfestivosTitle}">
+            <h:form id="SegCompanyxdiasfestivosCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{segCompanyxdiasfestivosController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateSegCompanyxdiasfestivosLabel_idcompanyxdiafestivos}" for="idcompanyxdiafestivos" />
+                        <p:inputText id="idcompanyxdiafestivos" value="#{segCompanyxdiasfestivosController.selected.idcompanyxdiafestivos}" title="#{bundle.CreateSegCompanyxdiasfestivosTitle_idcompanyxdiafestivos}" required="true" requiredMessage="#{bundle.CreateSegCompanyxdiasfestivosRequiredMessage_idcompanyxdiafestivos}"/>
+                        <p:outputLabel value="#{bundle.CreateSegCompanyxdiasfestivosLabel_iddiafestivos}" for="iddiafestivos" />
+                        <p:selectOneMenu id="iddiafestivos" value="#{segCompanyxdiasfestivosController.selected.iddiafestivos}" required="true" requiredMessage="#{bundle.EditSegCompanyxdiasfestivosRequiredMessage_iddiafestivos}">
+                            <f:selectItems value="#{segDiasfestivosController.itemsAvailableSelectOne}"
+                                           var="iddiafestivosItem"
+                                           itemValue="#{iddiafestivosItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateSegCompanyxdiasfestivosLabel_idcompany}" for="idcompany" />
+                        <p:selectOneMenu id="idcompany" value="#{segCompanyxdiasfestivosController.selected.idcompany}" required="true" requiredMessage="#{bundle.EditSegCompanyxdiasfestivosRequiredMessage_idcompany}">
+                            <f:selectItems value="#{segCompanyController.itemsAvailableSelectOne}"
+                                           var="idcompanyItem"
+                                           itemValue="#{idcompanyItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{segCompanyxdiasfestivosController.create}" value="#{bundle.Save}" update="display,:SegCompanyxdiasfestivosListForm:datalist,:growl" oncomplete="handleSubmit(args,'SegCompanyxdiasfestivosCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="SegCompanyxdiasfestivosCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

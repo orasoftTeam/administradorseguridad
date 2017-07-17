@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListSegModulosXRolTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            <h:form id="SegModulosXRolListForm">
+                <p:panel header="#{bundle.ListSegModulosXRolTitle}">
+                    <p:dataTable id="datalist" value="#{segModulosXRolController.items}" var="item"
+                                 selectionMode="single" selection="#{segModulosXRolController.selected}"
+                                 paginator="true"
+                                 rowKey="#{item.segModulosXRolPK}"
+                                 rows="10"
+                                 rowsPerPageTemplate="10,20,30,40,50"
+                                 >
+
+                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegModulosXRolTitle_secuencia}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.secuencia}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegModulosXRolTitle_nivel}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nivel}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegModulosXRolTitle_indforma}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.indforma}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegModulosXRolTitle_opcion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.opcion}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegModulosXRolTitle_codaplic}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codaplic}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegModulosXRolTitle_segRolcompany}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.segRolcompany}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegModulosXRolTitle_segMntoModulos}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.segMntoModulos}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegModulosXRolTitle_segCompany}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.segCompany}"/>
+                        </p:column>
+                        <f:facet name="footer">
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{segModulosXRolController.prepareCreate}" update=":SegModulosXRolCreateForm" oncomplete="PF('SegModulosXRolCreateDialog').show()"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":SegModulosXRolViewForm" oncomplete="PF('SegModulosXRolViewDialog').show()" disabled="#{empty segModulosXRolController.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":SegModulosXRolEditForm" oncomplete="PF('SegModulosXRolEditDialog').show()" disabled="#{empty segModulosXRolController.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{segModulosXRolController.destroy}" update=":growl,datalist" disabled="#{empty segModulosXRolController.selected}"/>
+                        </f:facet>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+
+            <ui:include src="Create.xhtml"/>
+            <ui:include src="Edit.xhtml"/>
+            <ui:include src="View.xhtml"/>
+        </ui:define>
+    </ui:composition>
+
+</html>

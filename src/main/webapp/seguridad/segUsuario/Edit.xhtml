@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="SegUsuarioEditDlg" widgetVar="SegUsuarioEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditSegUsuarioTitle}">
+            <h:form id="SegUsuarioEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{segUsuarioController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditSegUsuarioLabel_idusuario}" for="idusuario" />
+                        <p:inputText id="idusuario" value="#{segUsuarioController.selected.idusuario}" title="#{bundle.EditSegUsuarioTitle_idusuario}" required="true" requiredMessage="#{bundle.EditSegUsuarioRequiredMessage_idusuario}"/>
+                        <p:outputLabel value="#{bundle.EditSegUsuarioLabel_nombreusuario}" for="nombreusuario" />
+                        <p:inputText id="nombreusuario" value="#{segUsuarioController.selected.nombreusuario}" title="#{bundle.EditSegUsuarioTitle_nombreusuario}" required="true" requiredMessage="#{bundle.EditSegUsuarioRequiredMessage_nombreusuario}"/>
+                        <p:outputLabel value="#{bundle.EditSegUsuarioLabel_contrausuario}" for="contrausuario" />
+                        <p:inputText id="contrausuario" value="#{segUsuarioController.selected.contrausuario}" title="#{bundle.EditSegUsuarioTitle_contrausuario}" required="true" requiredMessage="#{bundle.EditSegUsuarioRequiredMessage_contrausuario}"/>
+                        <p:outputLabel value="#{bundle.EditSegUsuarioLabel_correousuario}" for="correousuario" />
+                        <p:inputText id="correousuario" value="#{segUsuarioController.selected.correousuario}" title="#{bundle.EditSegUsuarioTitle_correousuario}" />
+                        <p:outputLabel value="#{bundle.EditSegUsuarioLabel_fechacreacion}" for="fechacreacion" />
+                        <p:calendar id="fechacreacion" pattern="MM/dd/yyyy HH:mm:ss" value="#{segUsuarioController.selected.fechacreacion}" title="#{bundle.EditSegUsuarioTitle_fechacreacion}" required="true" requiredMessage="#{bundle.EditSegUsuarioRequiredMessage_fechacreacion}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditSegUsuarioLabel_estadousuario}" for="estadousuario" />
+                        <p:inputText id="estadousuario" value="#{segUsuarioController.selected.estadousuario}" title="#{bundle.EditSegUsuarioTitle_estadousuario}" required="true" requiredMessage="#{bundle.EditSegUsuarioRequiredMessage_estadousuario}"/>
+                        <p:outputLabel value="#{bundle.EditSegUsuarioLabel_fechafinusuario}" for="fechafinusuario" />
+                        <p:calendar id="fechafinusuario" pattern="MM/dd/yyyy HH:mm:ss" value="#{segUsuarioController.selected.fechafinusuario}" title="#{bundle.EditSegUsuarioTitle_fechafinusuario}"  showOn="button"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{segUsuarioController.update}" value="#{bundle.Save}" update="display,:SegUsuarioListForm:datalist,:growl" oncomplete="handleSubmit(args, 'SegUsuarioEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="SegUsuarioEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

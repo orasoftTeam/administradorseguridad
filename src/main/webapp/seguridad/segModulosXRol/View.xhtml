@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="SegModulosXRolViewDlg" widgetVar="SegModulosXRolViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewSegModulosXRolTitle}">
+            <h:form id="SegModulosXRolViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{segModulosXRolController.selected != null}">
+                        <h:outputText value="#{bundle.ViewSegModulosXRolLabel_secuencia}"/>
+                        <h:outputText value="#{segModulosXRolController.selected.secuencia}" title="#{bundle.ViewSegModulosXRolTitle_secuencia}"/>
+                        <h:outputText value="#{bundle.ViewSegModulosXRolLabel_nivel}"/>
+                        <h:outputText value="#{segModulosXRolController.selected.nivel}" title="#{bundle.ViewSegModulosXRolTitle_nivel}"/>
+                        <h:outputText value="#{bundle.ViewSegModulosXRolLabel_indforma}"/>
+                        <h:outputText value="#{segModulosXRolController.selected.indforma}" title="#{bundle.ViewSegModulosXRolTitle_indforma}"/>
+                        <h:outputText value="#{bundle.ViewSegModulosXRolLabel_opcion}"/>
+                        <h:outputText value="#{segModulosXRolController.selected.opcion}" title="#{bundle.ViewSegModulosXRolTitle_opcion}"/>
+                        <h:outputText value="#{bundle.ViewSegModulosXRolLabel_codaplic}"/>
+                        <h:outputText value="#{segModulosXRolController.selected.codaplic}" title="#{bundle.ViewSegModulosXRolTitle_codaplic}"/>
+                        <h:outputText value="#{bundle.ViewSegModulosXRolLabel_segRolcompany}"/>
+                        <h:outputText value="#{segModulosXRolController.selected.segRolcompany}" title="#{bundle.ViewSegModulosXRolTitle_segRolcompany}"/>
+                        <h:outputText value="#{bundle.ViewSegModulosXRolLabel_segMntoModulos}"/>
+                        <h:outputText value="#{segModulosXRolController.selected.segMntoModulos}" title="#{bundle.ViewSegModulosXRolTitle_segMntoModulos}"/>
+                        <h:outputText value="#{bundle.ViewSegModulosXRolLabel_segCompany}"/>
+                        <h:outputText value="#{segModulosXRolController.selected.segCompany}" title="#{bundle.ViewSegModulosXRolTitle_segCompany}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="SegModulosXRolViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

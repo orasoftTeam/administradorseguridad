@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="SegServicioViewDlg" widgetVar="SegServicioViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewSegServicioTitle}">
+            <h:form id="SegServicioViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{segServicioController.selected != null}">
+                        <h:outputText value="#{bundle.ViewSegServicioLabel_idservicio}"/>
+                        <h:outputText value="#{segServicioController.selected.idservicio}" title="#{bundle.ViewSegServicioTitle_idservicio}"/>
+                        <h:outputText value="#{bundle.ViewSegServicioLabel_nombreservicio}"/>
+                        <h:outputText value="#{segServicioController.selected.nombreservicio}" title="#{bundle.ViewSegServicioTitle_nombreservicio}"/>
+                        <h:outputText value="#{bundle.ViewSegServicioLabel_requisitos}"/>
+                        <h:outputText value="#{segServicioController.selected.requisitos}" title="#{bundle.ViewSegServicioTitle_requisitos}"/>
+                        <h:outputText value="#{bundle.ViewSegServicioLabel_idtiposervicio}"/>
+                        <h:outputText value="#{segServicioController.selected.idtiposervicio}" title="#{bundle.ViewSegServicioTitle_idtiposervicio}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="SegServicioViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
