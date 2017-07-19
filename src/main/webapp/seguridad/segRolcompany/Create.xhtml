@@ -12,21 +12,27 @@
             <h:form id="SegRolcompanyCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{segRolcompanyController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateSegRolcompanyLabel_idrolcia}" for="idrolcia" />
-                        <p:inputText id="idrolcia" value="#{segRolcompanyController.selected.idrolcia}" title="#{bundle.CreateSegRolcompanyTitle_idrolcia}" required="true" requiredMessage="#{bundle.CreateSegRolcompanyRequiredMessage_idrolcia}"/>
-                        <p:outputLabel value="#{bundle.CreateSegRolcompanyLabel_nombrerolcia}" for="nombrerolcia" />
-                        <p:inputText id="nombrerolcia" value="#{segRolcompanyController.selected.nombrerolcia}" title="#{bundle.CreateSegRolcompanyTitle_nombrerolcia}" />
-                        <p:outputLabel value="#{bundle.CreateSegRolcompanyLabel_estadorolcia}" for="estadorolcia" />
-                        <p:inputText id="estadorolcia" value="#{segRolcompanyController.selected.estadorolcia}" title="#{bundle.CreateSegRolcompanyTitle_estadorolcia}" />
                         <p:outputLabel value="#{bundle.CreateSegRolcompanyLabel_idcompany}" for="idcompany" />
                         <p:selectOneMenu id="idcompany" value="#{segRolcompanyController.selected.idcompany}" required="true" requiredMessage="#{bundle.EditSegRolcompanyRequiredMessage_idcompany}">
                             <f:selectItems value="#{segCompanyController.itemsAvailableSelectOne}"
                                            var="idcompanyItem"
-                                           itemValue="#{idcompanyItem}"/>
+                                           itemValue="#{idcompanyItem}" itemLabel="#{idcompanyItem.nombrecompany}"/>
                         </p:selectOneMenu>
+                        
+                        <p:outputLabel value="#{bundle.CreateSegRolcompanyLabel_estadorolcia}" for="estadorolcia" />
+                       <p:selectOneMenu  id="estadorolcia" value="#{segRolcompanyController.selected.estadorolcia}">
+   			<f:selectItem itemValue="A" itemLabel="ACTIVO" />
+   			<f:selectItem itemValue="I" itemLabel="INACTIVO" />
+   		        </p:selectOneMenu>
+                        
+                                                
+                        <p:outputLabel value="#{bundle.CreateSegRolcompanyLabel_nombrerolcia}" for="nombrerolcia" />
+                        <p:inputText id="nombrerolcia" value="#{segRolcompanyController.selected.nombrerolcia}" required="true" title="#{bundle.CreateSegRolcompanyTitle_nombrerolcia}" />
+                        
+                        
                     </p:panelGrid>
                     <p:commandButton actionListener="#{segRolcompanyController.create}" value="#{bundle.Save}" update="display,:SegRolcompanyListForm:datalist,:growl" oncomplete="handleSubmit(args,'SegRolcompanyCreateDialog');"/>
-                    <p:commandButton value="#{bundle.Cancel}" onclick="SegRolcompanyCreateDialog.hide()"/>
+                    <p:commandButton value="#{bundle.Cancel}"  onclick="SegRolcompanyCreateDialog.hide()"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>

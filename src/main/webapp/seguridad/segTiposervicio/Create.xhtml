@@ -12,8 +12,6 @@
             <h:form id="SegTiposervicioCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{segTiposervicioController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateSegTiposervicioLabel_idtiposervicio}" for="idtiposervicio" />
-                        <p:inputText id="idtiposervicio" value="#{segTiposervicioController.selected.idtiposervicio}" title="#{bundle.CreateSegTiposervicioTitle_idtiposervicio}" required="true" requiredMessage="#{bundle.CreateSegTiposervicioRequiredMessage_idtiposervicio}"/>
                         <p:outputLabel value="#{bundle.CreateSegTiposervicioLabel_nombretiposervicio}" for="nombretiposervicio" />
                         <p:inputText id="nombretiposervicio" value="#{segTiposervicioController.selected.nombretiposervicio}" title="#{bundle.CreateSegTiposervicioTitle_nombretiposervicio}" required="true" requiredMessage="#{bundle.CreateSegTiposervicioRequiredMessage_nombretiposervicio}"/>
                     </p:panelGrid>

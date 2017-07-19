@@ -27,23 +27,18 @@
                         <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
                         <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
 
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListSegRolusuarioTitle_idrolusuario}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idrolusuario}"/>
-                        </p:column>
+                        
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListSegRolusuarioTitle_idusuario}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idusuario}"/>
+                            <h:outputText value="#{item.idusuario.nombreusuario}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListSegRolusuarioTitle_idrol}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idrol}"/>
+                            <h:outputText value="#{item.idrol.nombrerol}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{segRolusuarioController.prepareCreate}" update=":SegRolusuarioCreateForm" oncomplete="PF('SegRolusuarioCreateDialog').show()"/>

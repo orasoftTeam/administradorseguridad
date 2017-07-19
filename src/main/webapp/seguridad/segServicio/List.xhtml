@@ -29,9 +29,9 @@
 
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListSegServicioTitle_idservicio}"/>
+                                <h:outputText value="#{bundle.ListSegServicioTitle_idtiposervicio}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idservicio}"/>
+                            <h:outputText value="#{item.idtiposervicio.nombretiposervicio}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
@@ -45,12 +45,7 @@
                             </f:facet>
                             <h:outputText value="#{item.requisitos}"/>
                         </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListSegServicioTitle_idtiposervicio}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idtiposervicio}"/>
-                        </p:column>
+
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{segServicioController.prepareCreate}" update=":SegServicioCreateForm" oncomplete="PF('SegServicioCreateDialog').show()"/>
                             <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":SegServicioViewForm" oncomplete="PF('SegServicioViewDialog').show()" disabled="#{empty segServicioController.selected}"/>

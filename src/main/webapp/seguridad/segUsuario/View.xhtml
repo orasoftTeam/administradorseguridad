@@ -12,8 +12,7 @@
             <h:form id="SegUsuarioViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{segUsuarioController.selected != null}">
-                        <h:outputText value="#{bundle.ViewSegUsuarioLabel_idusuario}"/>
-                        <h:outputText value="#{segUsuarioController.selected.idusuario}" title="#{bundle.ViewSegUsuarioTitle_idusuario}"/>
+                        
                         <h:outputText value="#{bundle.ViewSegUsuarioLabel_nombreusuario}"/>
                         <h:outputText value="#{segUsuarioController.selected.nombreusuario}" title="#{bundle.ViewSegUsuarioTitle_nombreusuario}"/>
                         <h:outputText value="#{bundle.ViewSegUsuarioLabel_contrausuario}"/>
@@ -25,7 +24,10 @@
                             <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
                         </h:outputText>
                         <h:outputText value="#{bundle.ViewSegUsuarioLabel_estadousuario}"/>
-                        <h:outputText value="#{segUsuarioController.selected.estadousuario}" title="#{bundle.ViewSegUsuarioTitle_estadousuario}"/>
+                        <h:outputText value="ACTIVO" rendered="#{segUsuarioController.selected.estadousuario eq 'A'}"/>
+                        <h:outputText value="INACTIVO" rendered="#{segUsuarioController.selected.estadousuario eq 'I'}"/>
+                        
+                        
                         <h:outputText value="#{bundle.ViewSegUsuarioLabel_fechafinusuario}"/>
                         <h:outputText value="#{segUsuarioController.selected.fechafinusuario}" title="#{bundle.ViewSegUsuarioTitle_fechafinusuario}">
                             <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />

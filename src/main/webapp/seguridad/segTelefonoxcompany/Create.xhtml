@@ -12,10 +12,14 @@
             <h:form id="SegTelefonoxcompanyCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{segTelefonoxcompanyController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateSegTelefonoxcompanyLabel_idtelefonoxcompany}" for="idtelefonoxcompany" />
-                        <p:inputText id="idtelefonoxcompany" value="#{segTelefonoxcompanyController.selected.idtelefonoxcompany}" title="#{bundle.CreateSegTelefonoxcompanyTitle_idtelefonoxcompany}" required="true" requiredMessage="#{bundle.CreateSegTelefonoxcompanyRequiredMessage_idtelefonoxcompany}"/>
+                        
                         <p:outputLabel value="#{bundle.CreateSegTelefonoxcompanyLabel_idcompany}" for="idcompany" />
-                        <p:inputText id="idcompany" value="#{segTelefonoxcompanyController.selected.idcompany}" title="#{bundle.CreateSegTelefonoxcompanyTitle_idcompany}" required="true" requiredMessage="#{bundle.CreateSegTelefonoxcompanyRequiredMessage_idcompany}"/>
+                        <p:selectOneMenu id="idcompany" value="#{segTelefonoxcompanyController.selected.idcompany}" required="true" requiredMessage="#{bundle.EditSegTelefonoxcompanyRequiredMessage_idcompany}">
+                            <f:selectItems value="#{segCompanyController.itemsAvailableSelectOne}"
+                                           var="idcompanyItem"
+                                           itemValue="#{idcompanyItem.idcompany}" itemLabel="#{idcompanyItem.nombrecompany}"/>
+                        </p:selectOneMenu>                   
+                     
                         <p:outputLabel value="#{bundle.CreateSegTelefonoxcompanyLabel_numerotelefono}" for="numerotelefono" />
                         <p:inputText id="numerotelefono" value="#{segTelefonoxcompanyController.selected.numerotelefono}" title="#{bundle.CreateSegTelefonoxcompanyTitle_numerotelefono}" required="true" requiredMessage="#{bundle.CreateSegTelefonoxcompanyRequiredMessage_numerotelefono}"/>
                     </p:panelGrid>

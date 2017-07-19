@@ -12,14 +12,13 @@
             <h:form id="SegServicioViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{segServicioController.selected != null}">
-                        <h:outputText value="#{bundle.ViewSegServicioLabel_idservicio}"/>
-                        <h:outputText value="#{segServicioController.selected.idservicio}" title="#{bundle.ViewSegServicioTitle_idservicio}"/>
+                        <h:outputText value="#{bundle.ViewSegServicioLabel_idtiposervicio}"/>
+                        <h:outputText value="#{segServicioController.selected.idtiposervicio.nombretiposervicio}" title="#{bundle.ViewSegServicioTitle_idtiposervicio}"/>
                         <h:outputText value="#{bundle.ViewSegServicioLabel_nombreservicio}"/>
                         <h:outputText value="#{segServicioController.selected.nombreservicio}" title="#{bundle.ViewSegServicioTitle_nombreservicio}"/>
                         <h:outputText value="#{bundle.ViewSegServicioLabel_requisitos}"/>
                         <h:outputText value="#{segServicioController.selected.requisitos}" title="#{bundle.ViewSegServicioTitle_requisitos}"/>
-                        <h:outputText value="#{bundle.ViewSegServicioLabel_idtiposervicio}"/>
-                        <h:outputText value="#{segServicioController.selected.idtiposervicio}" title="#{bundle.ViewSegServicioTitle_idtiposervicio}"/>
+                        
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="SegServicioViewDialog.hide()"/>
                 </h:panelGroup>

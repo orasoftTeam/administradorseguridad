@@ -12,8 +12,7 @@
             <h:form id="SegRubroEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{segRubroController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditSegRubroLabel_idrubro}" for="idrubro" />
-                        <p:inputText id="idrubro" value="#{segRubroController.selected.idrubro}" title="#{bundle.EditSegRubroTitle_idrubro}" required="true" requiredMessage="#{bundle.EditSegRubroRequiredMessage_idrubro}"/>
+                        
                         <p:outputLabel value="#{bundle.EditSegRubroLabel_nombrerubro}" for="nombrerubro" />
                         <p:inputText id="nombrerubro" value="#{segRubroController.selected.nombrerubro}" title="#{bundle.EditSegRubroTitle_nombrerubro}" required="true" requiredMessage="#{bundle.EditSegRubroRequiredMessage_nombrerubro}"/>
                     </p:panelGrid>

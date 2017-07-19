@@ -29,6 +29,21 @@
 
                         <p:column>
                             <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegUsuarioXCiaTitle_segCompany}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.segCompany.nombrecompany}"/>
+                        </p:column>
+                        
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListSegUsuarioXCiaTitle_segUsuario}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.segUsuario.nombreusuario}"/>
+                        </p:column>
+                                             
+                        
+                        <p:column>
+                            <f:facet name="header">
                                 <h:outputText value="#{bundle.ListSegUsuarioXCiaTitle_nombreUsuario}"/>
                             </f:facet>
                             <h:outputText value="#{item.nombreUsuario}"/>
@@ -37,20 +52,13 @@
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListSegUsuarioXCiaTitle_status}"/>
                             </f:facet>
-                            <h:outputText value="#{item.status}"/>
+                            
+                            
+                            <h:outputText value="ACTIVO" rendered="#{item.status eq 'A'}"/>
+                            <h:outputText value="INACTIVO" rendered="#{item.status eq 'I'}"/>
                         </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListSegUsuarioXCiaTitle_segUsuario}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.segUsuario}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListSegUsuarioXCiaTitle_segCompany}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.segCompany}"/>
-                        </p:column>
+
+
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{segUsuarioXCiaController.prepareCreate}" update=":SegUsuarioXCiaCreateForm" oncomplete="PF('SegUsuarioXCiaCreateDialog').show()"/>
                             <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":SegUsuarioXCiaViewForm" oncomplete="PF('SegUsuarioXCiaViewDialog').show()" disabled="#{empty segUsuarioXCiaController.selected}"/>

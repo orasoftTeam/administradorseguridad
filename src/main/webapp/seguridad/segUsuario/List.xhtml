@@ -27,24 +27,14 @@
                         <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
                         <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
 
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListSegUsuarioTitle_idusuario}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idusuario}"/>
-                        </p:column>
+
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListSegUsuarioTitle_nombreusuario}"/>
                             </f:facet>
                             <h:outputText value="#{item.nombreusuario}"/>
                         </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListSegUsuarioTitle_contrausuario}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.contrausuario}"/>
-                        </p:column>
+
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListSegUsuarioTitle_correousuario}"/>
@@ -63,16 +53,14 @@
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListSegUsuarioTitle_estadousuario}"/>
                             </f:facet>
-                            <h:outputText value="#{item.estadousuario}"/>
+                          
+                            <h:outputText value="ACTIVO" rendered="#{item.estadousuario eq 'A'}"/>
+                            <h:outputText value="INACTIVO" rendered="#{item.estadousuario eq 'I'}"/>
+                            
+                            
+                            
                         </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListSegUsuarioTitle_fechafinusuario}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.fechafinusuario}">
-                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
-                            </h:outputText>
-                        </p:column>
+
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{segUsuarioController.prepareCreate}" update=":SegUsuarioCreateForm" oncomplete="PF('SegUsuarioCreateDialog').show()"/>
                             <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":SegUsuarioViewForm" oncomplete="PF('SegUsuarioViewDialog').show()" disabled="#{empty segUsuarioController.selected}"/>

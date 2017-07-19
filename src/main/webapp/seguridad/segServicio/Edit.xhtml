@@ -12,19 +12,19 @@
             <h:form id="SegServicioEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{segServicioController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditSegServicioLabel_idservicio}" for="idservicio" />
-                        <p:inputText id="idservicio" value="#{segServicioController.selected.idservicio}" title="#{bundle.EditSegServicioTitle_idservicio}" required="true" requiredMessage="#{bundle.EditSegServicioRequiredMessage_idservicio}"/>
-                        <p:outputLabel value="#{bundle.EditSegServicioLabel_nombreservicio}" for="nombreservicio" />
-                        <p:inputText id="nombreservicio" value="#{segServicioController.selected.nombreservicio}" title="#{bundle.EditSegServicioTitle_nombreservicio}" required="true" requiredMessage="#{bundle.EditSegServicioRequiredMessage_nombreservicio}"/>
-                        <p:outputLabel value="#{bundle.EditSegServicioLabel_requisitos}" for="requisitos" />
-                        <p:inputText id="requisitos" value="#{segServicioController.selected.requisitos}" title="#{bundle.EditSegServicioTitle_requisitos}" required="true" requiredMessage="#{bundle.EditSegServicioRequiredMessage_requisitos}"/>
                         <p:outputLabel value="#{bundle.EditSegServicioLabel_idtiposervicio}" for="idtiposervicio" />
                         <p:selectOneMenu id="idtiposervicio" value="#{segServicioController.selected.idtiposervicio}" required="true" requiredMessage="#{bundle.EditSegServicioRequiredMessage_idtiposervicio}">
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{segTiposervicioController.itemsAvailableSelectOne}"
                                            var="idtiposervicioItem"
-                                           itemValue="#{idtiposervicioItem}"/>
+                                           itemValue="#{idtiposervicioItem}" itemLabel="#{idtiposervicioItem.nombretiposervicio}"/>
                         </p:selectOneMenu>
+                        
+                        <p:outputLabel value="#{bundle.EditSegServicioLabel_nombreservicio}" for="nombreservicio" />
+                        <p:inputText id="nombreservicio" value="#{segServicioController.selected.nombreservicio}" title="#{bundle.EditSegServicioTitle_nombreservicio}" required="true" requiredMessage="#{bundle.EditSegServicioRequiredMessage_nombreservicio}"/>
+                        <p:outputLabel value="#{bundle.EditSegServicioLabel_requisitos}" for="requisitos" />
+                        <p:inputText id="requisitos" value="#{segServicioController.selected.requisitos}" title="#{bundle.EditSegServicioTitle_requisitos}" required="true" requiredMessage="#{bundle.EditSegServicioRequiredMessage_requisitos}"/>
+                        
                     </p:panelGrid>
                     <p:commandButton actionListener="#{segServicioController.update}" value="#{bundle.Save}" update="display,:SegServicioListForm:datalist,:growl" oncomplete="handleSubmit(args, 'SegServicioEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="SegServicioEditDialog.hide()"/>

@@ -12,14 +12,20 @@
             <h:form id="SegUsuarioXCiaViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{segUsuarioXCiaController.selected != null}">
+                        <h:outputText value="#{bundle.ViewSegUsuarioXCiaLabel_segCompany}"/>
+                        <h:outputText value="#{segUsuarioXCiaController.selected.segCompany.nombrecompany}" title="#{bundle.ViewSegUsuarioXCiaTitle_segCompany}"/>
+                        
+                        <h:outputText value="#{bundle.ViewSegUsuarioXCiaLabel_segUsuario}"/>
+                        <h:outputText value="#{segUsuarioXCiaController.selected.segUsuario.nombreusuario}" title="#{bundle.ViewSegUsuarioXCiaTitle_segUsuario}"/>
+                        
                         <h:outputText value="#{bundle.ViewSegUsuarioXCiaLabel_nombreUsuario}"/>
                         <h:outputText value="#{segUsuarioXCiaController.selected.nombreUsuario}" title="#{bundle.ViewSegUsuarioXCiaTitle_nombreUsuario}"/>
+                        
                         <h:outputText value="#{bundle.ViewSegUsuarioXCiaLabel_status}"/>
-                        <h:outputText value="#{segUsuarioXCiaController.selected.status}" title="#{bundle.ViewSegUsuarioXCiaTitle_status}"/>
-                        <h:outputText value="#{bundle.ViewSegUsuarioXCiaLabel_segUsuario}"/>
-                        <h:outputText value="#{segUsuarioXCiaController.selected.segUsuario}" title="#{bundle.ViewSegUsuarioXCiaTitle_segUsuario}"/>
-                        <h:outputText value="#{bundle.ViewSegUsuarioXCiaLabel_segCompany}"/>
-                        <h:outputText value="#{segUsuarioXCiaController.selected.segCompany}" title="#{bundle.ViewSegUsuarioXCiaTitle_segCompany}"/>
+                        
+                        <h:outputText value="ACTIVO" rendered="#{segUsuarioXCiaController.selected.status eq 'A'}"/>
+                        <h:outputText value="INACTIVO" rendered="#{segUsuarioXCiaController.selected.status eq 'I'}"/>
+                        
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="SegUsuarioXCiaViewDialog.hide()"/>
                 </h:panelGroup>

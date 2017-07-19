@@ -12,8 +12,7 @@
             <h:form id="SegRolEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{segRolController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditSegRolLabel_idrol}" for="idrol" />
-                        <p:inputText id="idrol" value="#{segRolController.selected.idrol}" title="#{bundle.EditSegRolTitle_idrol}" required="true" requiredMessage="#{bundle.EditSegRolRequiredMessage_idrol}"/>
+                       
                         <p:outputLabel value="#{bundle.EditSegRolLabel_nombrerol}" for="nombrerol" />
                         <p:inputText id="nombrerol" value="#{segRolController.selected.nombrerol}" title="#{bundle.EditSegRolTitle_nombrerol}" required="true" requiredMessage="#{bundle.EditSegRolRequiredMessage_nombrerol}"/>
                     </p:panelGrid>

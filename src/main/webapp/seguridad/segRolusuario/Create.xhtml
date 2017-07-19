@@ -12,19 +12,19 @@
             <h:form id="SegRolusuarioCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{segRolusuarioController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateSegRolusuarioLabel_idrolusuario}" for="idrolusuario" />
-                        <p:inputText id="idrolusuario" value="#{segRolusuarioController.selected.idrolusuario}" title="#{bundle.CreateSegRolusuarioTitle_idrolusuario}" required="true" requiredMessage="#{bundle.CreateSegRolusuarioRequiredMessage_idrolusuario}"/>
+                        
                         <p:outputLabel value="#{bundle.CreateSegRolusuarioLabel_idusuario}" for="idusuario" />
                         <p:selectOneMenu id="idusuario" value="#{segRolusuarioController.selected.idusuario}" required="true" requiredMessage="#{bundle.EditSegRolusuarioRequiredMessage_idusuario}">
                             <f:selectItems value="#{segUsuarioController.itemsAvailableSelectOne}"
                                            var="idusuarioItem"
-                                           itemValue="#{idusuarioItem}"/>
+                                           itemValue="#{idusuarioItem} " itemLabel="#{idusuarioItem.nombreusuario}"/>
                         </p:selectOneMenu>
+                        
                         <p:outputLabel value="#{bundle.CreateSegRolusuarioLabel_idrol}" for="idrol" />
                         <p:selectOneMenu id="idrol" value="#{segRolusuarioController.selected.idrol}" required="true" requiredMessage="#{bundle.EditSegRolusuarioRequiredMessage_idrol}">
                             <f:selectItems value="#{segRolController.itemsAvailableSelectOne}"
                                            var="idrolItem"
-                                           itemValue="#{idrolItem}"/>
+                                           itemValue="#{idrolItem}" itemLabel="#{idrolItem.nombrerol}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{segRolusuarioController.create}" value="#{bundle.Save}" update="display,:SegRolusuarioListForm:datalist,:growl" oncomplete="handleSubmit(args,'SegRolusuarioCreateDialog');"/>

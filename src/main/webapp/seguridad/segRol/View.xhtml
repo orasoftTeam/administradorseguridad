@@ -12,8 +12,7 @@
             <h:form id="SegRolViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{segRolController.selected != null}">
-                        <h:outputText value="#{bundle.ViewSegRolLabel_idrol}"/>
-                        <h:outputText value="#{segRolController.selected.idrol}" title="#{bundle.ViewSegRolTitle_idrol}"/>
+                        
                         <h:outputText value="#{bundle.ViewSegRolLabel_nombrerol}"/>
                         <h:outputText value="#{segRolController.selected.nombrerol}" title="#{bundle.ViewSegRolTitle_nombrerol}"/>
                     </p:panelGrid>

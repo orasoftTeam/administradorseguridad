@@ -12,12 +12,11 @@
             <h:form id="SegRolusuarioViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{segRolusuarioController.selected != null}">
-                        <h:outputText value="#{bundle.ViewSegRolusuarioLabel_idrolusuario}"/>
-                        <h:outputText value="#{segRolusuarioController.selected.idrolusuario}" title="#{bundle.ViewSegRolusuarioTitle_idrolusuario}"/>
+                       
                         <h:outputText value="#{bundle.ViewSegRolusuarioLabel_idusuario}"/>
-                        <h:outputText value="#{segRolusuarioController.selected.idusuario}" title="#{bundle.ViewSegRolusuarioTitle_idusuario}"/>
+                        <h:outputText value="#{segRolusuarioController.selected.idusuario.nombreusuario}" title="#{bundle.ViewSegRolusuarioTitle_idusuario}"/>
                         <h:outputText value="#{bundle.ViewSegRolusuarioLabel_idrol}"/>
-                        <h:outputText value="#{segRolusuarioController.selected.idrol}" title="#{bundle.ViewSegRolusuarioTitle_idrol}"/>
+                        <h:outputText value="#{segRolusuarioController.selected.idrol.nombrerol}" title="#{bundle.ViewSegRolusuarioTitle_idrol}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="SegRolusuarioViewDialog.hide()"/>
                 </h:panelGroup>

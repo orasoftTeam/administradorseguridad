@@ -12,8 +12,6 @@
             <h:form id="SegRubroCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{segRubroController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateSegRubroLabel_idrubro}" for="idrubro" />
-                        <p:inputText id="idrubro" value="#{segRubroController.selected.idrubro}" title="#{bundle.CreateSegRubroTitle_idrubro}" required="true" requiredMessage="#{bundle.CreateSegRubroRequiredMessage_idrubro}"/>
                         <p:outputLabel value="#{bundle.CreateSegRubroLabel_nombrerubro}" for="nombrerubro" />
                         <p:inputText id="nombrerubro" value="#{segRubroController.selected.nombrerubro}" title="#{bundle.CreateSegRubroTitle_nombrerubro}" required="true" requiredMessage="#{bundle.CreateSegRubroRequiredMessage_nombrerubro}"/>
                     </p:panelGrid>

@@ -12,20 +12,33 @@
             <h:form id="SegUsuarioCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{segUsuarioController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateSegUsuarioLabel_idusuario}" for="idusuario" />
-                        <p:inputText id="idusuario" value="#{segUsuarioController.selected.idusuario}" title="#{bundle.CreateSegUsuarioTitle_idusuario}" required="true" requiredMessage="#{bundle.CreateSegUsuarioRequiredMessage_idusuario}"/>
+                        
                         <p:outputLabel value="#{bundle.CreateSegUsuarioLabel_nombreusuario}" for="nombreusuario" />
                         <p:inputText id="nombreusuario" value="#{segUsuarioController.selected.nombreusuario}" title="#{bundle.CreateSegUsuarioTitle_nombreusuario}" required="true" requiredMessage="#{bundle.CreateSegUsuarioRequiredMessage_nombreusuario}"/>
+                        
                         <p:outputLabel value="#{bundle.CreateSegUsuarioLabel_contrausuario}" for="contrausuario" />
                         <p:inputText id="contrausuario" value="#{segUsuarioController.selected.contrausuario}" title="#{bundle.CreateSegUsuarioTitle_contrausuario}" required="true" requiredMessage="#{bundle.CreateSegUsuarioRequiredMessage_contrausuario}"/>
+                        
                         <p:outputLabel value="#{bundle.CreateSegUsuarioLabel_correousuario}" for="correousuario" />
                         <p:inputText id="correousuario" value="#{segUsuarioController.selected.correousuario}" title="#{bundle.CreateSegUsuarioTitle_correousuario}" />
+                        
                         <p:outputLabel value="#{bundle.CreateSegUsuarioLabel_fechacreacion}" for="fechacreacion" />
                         <p:calendar id="fechacreacion" pattern="MM/dd/yyyy HH:mm:ss" value="#{segUsuarioController.selected.fechacreacion}" title="#{bundle.EditSegUsuarioTitle_fechacreacion}" required="true" requiredMessage="#{bundle.EditSegUsuarioRequiredMessage_fechacreacion}" showOn="button"/>
+                        
                         <p:outputLabel value="#{bundle.CreateSegUsuarioLabel_estadousuario}" for="estadousuario" />
-                        <p:inputText id="estadousuario" value="#{segUsuarioController.selected.estadousuario}" title="#{bundle.CreateSegUsuarioTitle_estadousuario}" required="true" requiredMessage="#{bundle.CreateSegUsuarioRequiredMessage_estadousuario}"/>
-                        <p:outputLabel value="#{bundle.CreateSegUsuarioLabel_fechafinusuario}" for="fechafinusuario" />
-                        <p:calendar id="fechafinusuario" pattern="MM/dd/yyyy HH:mm:ss" value="#{segUsuarioController.selected.fechafinusuario}" title="#{bundle.EditSegUsuarioTitle_fechafinusuario}"  showOn="button"/>
+                        
+                        
+                        <p:selectOneMenu  id="estadousuario" value="#{segUsuarioController.selected.estadousuario}" required="true" requiredMessage="#{bundle.CreateSegUsuarioRequiredMessage_estadousuario}"   >
+   			<f:selectItem itemValue="A" itemLabel="ACTIVO" />
+   			<f:selectItem itemValue="I" itemLabel="INACTIVO" />
+   		        </p:selectOneMenu>
+                        
+                        
+                        
+                                               
+                        
+                        
+                        
                     </p:panelGrid>
                     <p:commandButton actionListener="#{segUsuarioController.create}" value="#{bundle.Save}" update="display,:SegUsuarioListForm:datalist,:growl" oncomplete="handleSubmit(args,'SegUsuarioCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="SegUsuarioCreateDialog.hide()"/>

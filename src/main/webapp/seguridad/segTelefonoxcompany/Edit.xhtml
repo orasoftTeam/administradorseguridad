@@ -12,8 +12,7 @@
             <h:form id="SegTelefonoxcompanyEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{segTelefonoxcompanyController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditSegTelefonoxcompanyLabel_idtelefonoxcompany}" for="idtelefonoxcompany" />
-                        <p:inputText id="idtelefonoxcompany" value="#{segTelefonoxcompanyController.selected.idtelefonoxcompany}" title="#{bundle.EditSegTelefonoxcompanyTitle_idtelefonoxcompany}" required="true" requiredMessage="#{bundle.EditSegTelefonoxcompanyRequiredMessage_idtelefonoxcompany}"/>
+                        
                         <p:outputLabel value="#{bundle.EditSegTelefonoxcompanyLabel_idcompany}" for="idcompany" />
                         <p:inputText id="idcompany" value="#{segTelefonoxcompanyController.selected.idcompany}" title="#{bundle.EditSegTelefonoxcompanyTitle_idcompany}" required="true" requiredMessage="#{bundle.EditSegTelefonoxcompanyRequiredMessage_idcompany}"/>
                         <p:outputLabel value="#{bundle.EditSegTelefonoxcompanyLabel_numerotelefono}" for="numerotelefono" />

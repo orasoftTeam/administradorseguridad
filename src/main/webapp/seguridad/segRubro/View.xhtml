@@ -12,8 +12,7 @@
             <h:form id="SegRubroViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{segRubroController.selected != null}">
-                        <h:outputText value="#{bundle.ViewSegRubroLabel_idrubro}"/>
-                        <h:outputText value="#{segRubroController.selected.idrubro}" title="#{bundle.ViewSegRubroTitle_idrubro}"/>
+                        
                         <h:outputText value="#{bundle.ViewSegRubroLabel_nombrerubro}"/>
                         <h:outputText value="#{segRubroController.selected.nombrerubro}" title="#{bundle.ViewSegRubroTitle_nombrerubro}"/>
                     </p:panelGrid>

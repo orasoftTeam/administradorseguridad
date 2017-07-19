@@ -12,14 +12,20 @@
             <h:form id="SegRolcompanyViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{segRolcompanyController.selected != null}">
-                        <h:outputText value="#{bundle.ViewSegRolcompanyLabel_idrolcia}"/>
-                        <h:outputText value="#{segRolcompanyController.selected.idrolcia}" title="#{bundle.ViewSegRolcompanyTitle_idrolcia}"/>
+                        
+                        <h:outputText value="#{bundle.ViewSegRolcompanyLabel_idcompany}"/>
+                        <h:outputText value="#{segRolcompanyController.selected.idcompany.nombrecompany}" title="#{bundle.ViewSegRolcompanyTitle_idcompany}"/>
+                        
+                        <h:outputText value="#{bundle.ViewSegRolcompanyLabel_estadorolcia}"/>                     
+                        <h:outputText value="ACTIVO" rendered="#{segRolcompanyController.selected.estadorolcia eq 'A'}"/>
+                        <h:outputText value="INACTIVO" rendered="#{segRolcompanyController.selected.estadorolcia eq 'I'}"/>
+                        
+                        
+                        
                         <h:outputText value="#{bundle.ViewSegRolcompanyLabel_nombrerolcia}"/>
                         <h:outputText value="#{segRolcompanyController.selected.nombrerolcia}" title="#{bundle.ViewSegRolcompanyTitle_nombrerolcia}"/>
-                        <h:outputText value="#{bundle.ViewSegRolcompanyLabel_estadorolcia}"/>
-                        <h:outputText value="#{segRolcompanyController.selected.estadorolcia}" title="#{bundle.ViewSegRolcompanyTitle_estadorolcia}"/>
-                        <h:outputText value="#{bundle.ViewSegRolcompanyLabel_idcompany}"/>
-                        <h:outputText value="#{segRolcompanyController.selected.idcompany}" title="#{bundle.ViewSegRolcompanyTitle_idcompany}"/>
+      
+                    
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="SegRolcompanyViewDialog.hide()"/>
                 </h:panelGroup>

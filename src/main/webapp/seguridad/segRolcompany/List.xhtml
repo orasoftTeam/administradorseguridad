@@ -29,28 +29,26 @@
 
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListSegRolcompanyTitle_idrolcia}"/>
+                                <h:outputText value="#{bundle.ListSegRolcompanyTitle_idcompany}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idrolcia}"/>
+                            <h:outputText value="#{item.idcompany.nombrecompany}" />
                         </p:column>
+                                       
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListSegRolcompanyTitle_nombrerolcia}"/>
                             </f:facet>
-                            <h:outputText value="#{item.nombrerolcia}"/>
+                            <h:outputText value="#{item.nombrerolcia}" />
                         </p:column>
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListSegRolcompanyTitle_estadorolcia}"/>
                             </f:facet>
-                            <h:outputText value="#{item.estadorolcia}"/>
+                           
+                            <h:outputText value="ACTIVO" rendered="#{item.estadorolcia eq 'A'}"/>
+                            <h:outputText value="INACTIVO" rendered="#{item.estadorolcia eq 'I'}"/>
                         </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListSegRolcompanyTitle_idcompany}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idcompany}"/>
-                        </p:column>
+
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{segRolcompanyController.prepareCreate}" update=":SegRolcompanyCreateForm" oncomplete="PF('SegRolcompanyCreateDialog').show()"/>
                             <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":SegRolcompanyViewForm" oncomplete="PF('SegRolcompanyViewDialog').show()" disabled="#{empty segRolcompanyController.selected}"/>

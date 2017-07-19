@@ -12,8 +12,7 @@
             <h:form id="SegTiposervicioViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{segTiposervicioController.selected != null}">
-                        <h:outputText value="#{bundle.ViewSegTiposervicioLabel_idtiposervicio}"/>
-                        <h:outputText value="#{segTiposervicioController.selected.idtiposervicio}" title="#{bundle.ViewSegTiposervicioTitle_idtiposervicio}"/>
+                        
                         <h:outputText value="#{bundle.ViewSegTiposervicioLabel_nombretiposervicio}"/>
                         <h:outputText value="#{segTiposervicioController.selected.nombretiposervicio}" title="#{bundle.ViewSegTiposervicioTitle_nombretiposervicio}"/>
                     </p:panelGrid>

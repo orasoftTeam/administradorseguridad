@@ -27,6 +27,7 @@ public class SegRolcompanyController implements Serializable {
     private com.admin.facade.SegRolcompanyFacade ejbFacade;
     private List<SegRolcompany> items = null;
     private SegRolcompany selected;
+    
 
     public SegRolcompanyController() {
     }

@@ -12,8 +12,6 @@
             <h:form id="SegPaisEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{segPaisController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditSegPaisLabel_idpais}" for="idpais" />
-                        <p:inputText id="idpais" value="#{segPaisController.selected.idpais}" title="#{bundle.EditSegPaisTitle_idpais}" required="true" requiredMessage="#{bundle.EditSegPaisRequiredMessage_idpais}"/>
                         <p:outputLabel value="#{bundle.EditSegPaisLabel_nombrepais}" for="nombrepais" />
                         <p:inputText id="nombrepais" value="#{segPaisController.selected.nombrepais}" title="#{bundle.EditSegPaisTitle_nombrepais}" required="true" requiredMessage="#{bundle.EditSegPaisRequiredMessage_nombrepais}"/>
                     </p:panelGrid>

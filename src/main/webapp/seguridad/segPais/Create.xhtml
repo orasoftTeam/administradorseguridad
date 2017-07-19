@@ -12,8 +12,8 @@
             <h:form id="SegPaisCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{segPaisController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateSegPaisLabel_idpais}" for="idpais" />
-                        <p:inputText id="idpais" value="#{segPaisController.selected.idpais}" title="#{bundle.CreateSegPaisTitle_idpais}" required="true" requiredMessage="#{bundle.CreateSegPaisRequiredMessage_idpais}"/>
+                        
+                        
                         <p:outputLabel value="#{bundle.CreateSegPaisLabel_nombrepais}" for="nombrepais" />
                         <p:inputText id="nombrepais" value="#{segPaisController.selected.nombrepais}" title="#{bundle.CreateSegPaisTitle_nombrepais}" required="true" requiredMessage="#{bundle.CreateSegPaisRequiredMessage_nombrepais}"/>
                     </p:panelGrid>

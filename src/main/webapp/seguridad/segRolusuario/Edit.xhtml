@@ -12,21 +12,20 @@
             <h:form id="SegRolusuarioEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{segRolusuarioController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditSegRolusuarioLabel_idrolusuario}" for="idrolusuario" />
-                        <p:inputText id="idrolusuario" value="#{segRolusuarioController.selected.idrolusuario}" title="#{bundle.EditSegRolusuarioTitle_idrolusuario}" required="true" requiredMessage="#{bundle.EditSegRolusuarioRequiredMessage_idrolusuario}"/>
+                        
                         <p:outputLabel value="#{bundle.EditSegRolusuarioLabel_idusuario}" for="idusuario" />
                         <p:selectOneMenu id="idusuario" value="#{segRolusuarioController.selected.idusuario}" required="true" requiredMessage="#{bundle.EditSegRolusuarioRequiredMessage_idusuario}">
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{segUsuarioController.itemsAvailableSelectOne}"
                                            var="idusuarioItem"
-                                           itemValue="#{idusuarioItem}"/>
+                                           itemValue="#{idusuarioItem}" itemLabel="#{idusuarioItem.nombreusuario}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.EditSegRolusuarioLabel_idrol}" for="idrol" />
                         <p:selectOneMenu id="idrol" value="#{segRolusuarioController.selected.idrol}" required="true" requiredMessage="#{bundle.EditSegRolusuarioRequiredMessage_idrol}">
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{segRolController.itemsAvailableSelectOne}"
                                            var="idrolItem"
-                                           itemValue="#{idrolItem}"/>
+                                           itemValue="#{idrolItem}" itemLabel="#{idrolItem.nombrerol}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{segRolusuarioController.update}" value="#{bundle.Save}" update="display,:SegRolusuarioListForm:datalist,:growl" oncomplete="handleSubmit(args, 'SegRolusuarioEditDialog');"/>
