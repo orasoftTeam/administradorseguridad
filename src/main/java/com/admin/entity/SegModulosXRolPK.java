@@ -6,6 +6,7 @@
 package com.admin.entity;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -27,8 +28,8 @@ public class SegModulosXRolPK implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 10)
-    @Column(name = "IDROLCIA")
-    private String idrolcia;
+    @Column(name = "IDROL")
+    private BigDecimal idrol;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 3)
@@ -38,9 +39,9 @@ public class SegModulosXRolPK implements Serializable {
     public SegModulosXRolPK() {
     }
 
-    public SegModulosXRolPK(BigInteger idcompany, String idrolcia, String idmodulo) {
+    public SegModulosXRolPK(BigInteger idcompany, BigDecimal idrol, String idmodulo) {
         this.idcompany = idcompany;
-        this.idrolcia = idrolcia;
+        this.idrol = idrol;
         this.idmodulo = idmodulo;
     }
 
@@ -52,12 +53,12 @@ public class SegModulosXRolPK implements Serializable {
         this.idcompany = idcompany;
     }
 
-    public String getIdrolcia() {
-        return idrolcia;
+    public BigDecimal getIdrol() {
+        return idrol;
     }
 
-    public void setIdrolcia(String idrolcia) {
-        this.idrolcia = idrolcia;
+    public void setIdrol(BigDecimal idrol) {
+        this.idrol = idrol;
     }
 
     public String getIdmodulo() {
@@ -72,7 +73,7 @@ public class SegModulosXRolPK implements Serializable {
     public int hashCode() {
         int hash = 0;
         hash += (idcompany != null ? idcompany.hashCode() : 0);
-        hash += (idrolcia != null ? idrolcia.hashCode() : 0);
+        hash += (idrol != null ? idrol.hashCode() : 0);
         hash += (idmodulo != null ? idmodulo.hashCode() : 0);
         return hash;
     }
@@ -87,7 +88,7 @@ public class SegModulosXRolPK implements Serializable {
         if ((this.idcompany == null && other.idcompany != null) || (this.idcompany != null && !this.idcompany.equals(other.idcompany))) {
             return false;
         }
-        if ((this.idrolcia == null && other.idrolcia != null) || (this.idrolcia != null && !this.idrolcia.equals(other.idrolcia))) {
+        if ((this.idrol == null && other.idrol != null) || (this.idrol != null && !this.idrol.equals(other.idrol))) {
             return false;
         }
         if ((this.idmodulo == null && other.idmodulo != null) || (this.idmodulo != null && !this.idmodulo.equals(other.idmodulo))) {
@@ -98,7 +99,7 @@ public class SegModulosXRolPK implements Serializable {
 
     @Override
     public String toString() {
-        return "com.admin.entity.SegModulosXRolPK[ idcompany=" + idcompany + ", idrolcia=" + idrolcia + ", idmodulo=" + idmodulo + " ]";
+        return "com.admin.entity.SegModulosXRolPK[ idcompany=" + idcompany + ", idrol=" + idrol + ", idmodulo=" + idmodulo + " ]";
     }
     
 }

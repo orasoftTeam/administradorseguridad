@@ -6,6 +6,7 @@ import com.admin.util.JsfUtil.PersistAction;
 import com.admin.facade.SegModulosXRolFacade;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -43,7 +44,7 @@ public class SegModulosXRolController implements Serializable {
     protected void setEmbeddableKeys() {
         selected.getSegModulosXRolPK().setIdmodulo(selected.getSegMntoModulos().getIdmodulo());
         selected.getSegModulosXRolPK().setIdcompany(selected.getSegCompany().getIdcompany().toBigInteger());
-        selected.getSegModulosXRolPK().setIdrolcia(selected.getSegRolcompany().getIdrolcia());
+        selected.getSegModulosXRolPK().setIdrol(selected.getSegRol().getIdrol());
     }
 
     protected void initializeEmbeddableKey() {
@@ -147,7 +148,7 @@ public class SegModulosXRolController implements Serializable {
             String values[] = value.split(SEPARATOR_ESCAPED);
             key = new com.admin.entity.SegModulosXRolPK();
             key.setIdcompany(new BigInteger(values[0]));
-            key.setIdrolcia(values[1]);
+            key.setIdrol(new BigDecimal(values[1]));
             key.setIdmodulo(values[2]);
             return key;
         }
@@ -156,7 +157,7 @@ public class SegModulosXRolController implements Serializable {
             StringBuilder sb = new StringBuilder();
             sb.append(value.getIdcompany());
             sb.append(SEPARATOR);
-            sb.append(value.getIdrolcia());
+            sb.append(value.getIdrol());
             sb.append(SEPARATOR);
             sb.append(value.getIdmodulo());
             return sb.toString();

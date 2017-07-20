@@ -54,6 +54,10 @@ public class SegRol implements Serializable {
     private String nombrerol;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idrol")
     private List<SegRolusuario> segRolusuarioList;
+    
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "segRol")
+    private List<SegModulosXRol> segModulosXRolList;
+
 
     public SegRol() {
     }
@@ -90,6 +94,15 @@ public class SegRol implements Serializable {
 
     public void setSegRolusuarioList(List<SegRolusuario> segRolusuarioList) {
         this.segRolusuarioList = segRolusuarioList;
+    }
+    
+    @XmlTransient
+    public List<SegModulosXRol> getSegModulosXRolList() {
+        return segModulosXRolList;
+    }
+
+    public void setSegModulosXRolList(List<SegModulosXRol> segModulosXRolList) {
+        this.segModulosXRolList = segModulosXRolList;
     }
 
     @Override

@@ -19,14 +19,14 @@
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{segDiasfestivosController.itemsAvailableSelectOne}"
                                            var="iddiafestivosItem"
-                                           itemValue="#{iddiafestivosItem}"/>
+                                           itemValue="#{iddiafestivosItem}" itemLabel="#{iddiafestivosItem.nombrediafestivos}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.EditSegCompanyxdiasfestivosLabel_idcompany}" for="idcompany" />
                         <p:selectOneMenu id="idcompany" value="#{segCompanyxdiasfestivosController.selected.idcompany}" required="true" requiredMessage="#{bundle.EditSegCompanyxdiasfestivosRequiredMessage_idcompany}">
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{segCompanyController.itemsAvailableSelectOne}"
                                            var="idcompanyItem"
-                                           itemValue="#{idcompanyItem}"/>
+                                           itemValue="#{idcompanyItem}" itemLabel="#{idcompanyItem.nombrecompany}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{segCompanyxdiasfestivosController.update}" value="#{bundle.Save}" update="display,:SegCompanyxdiasfestivosListForm:datalist,:growl" oncomplete="handleSubmit(args, 'SegCompanyxdiasfestivosEditDialog');"/>

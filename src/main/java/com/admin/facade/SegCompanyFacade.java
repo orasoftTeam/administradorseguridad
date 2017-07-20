@@ -6,9 +6,12 @@
 package com.admin.facade;
 
 import com.admin.entity.SegCompany;
+import java.util.ArrayList;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -27,6 +30,13 @@ public class SegCompanyFacade extends AbstractFacade<SegCompany> {
 
     public SegCompanyFacade() {
         super(SegCompany.class);
+    }
+    
+    public List<SegCompany> obtenerCompanys(){
+        Query q= getEntityManager().createNativeQuery("select * from seg_company where estadocompany=?", SegCompany.class);
+        q.setParameter(1, 'A');
+        List<SegCompany> listTmp= q.getResultList();
+        return listTmp.isEmpty()? new ArrayList<SegCompany>(): listTmp;
     }
     
 }

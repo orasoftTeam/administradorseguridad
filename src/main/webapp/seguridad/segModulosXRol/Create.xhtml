@@ -23,10 +23,10 @@
                         <p:outputLabel value="#{bundle.CreateSegModulosXRolLabel_codaplic}" for="codaplic" />
                         <p:inputText id="codaplic" value="#{segModulosXRolController.selected.codaplic}" title="#{bundle.CreateSegModulosXRolTitle_codaplic}" />
                         <p:outputLabel value="#{bundle.CreateSegModulosXRolLabel_segRolcompany}" for="segRolcompany" />
-                        <p:selectOneMenu id="segRolcompany" value="#{segModulosXRolController.selected.segRolcompany}" required="true" requiredMessage="#{bundle.EditSegModulosXRolRequiredMessage_segRolcompany}">
-                            <f:selectItems value="#{segRolcompanyController.itemsAvailableSelectOne}"
-                                           var="segRolcompanyItem"
-                                           itemValue="#{segRolcompanyItem}"/>
+                        <p:selectOneMenu id="segRolcompany" value="#{segModulosXRolController.selected.segRol}" required="true" requiredMessage="#{bundle.EditSegModulosXRolRequiredMessage_segRolcompany}">
+                            <f:selectItems value="#{segRolController.itemsAvailableSelectOne}"
+                                           var="segRolItem"
+                                           itemValue="#{segRolItem}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.CreateSegModulosXRolLabel_segMntoModulos}" for="segMntoModulos" />
                         <p:selectOneMenu id="segMntoModulos" value="#{segModulosXRolController.selected.segMntoModulos}" required="true" requiredMessage="#{bundle.EditSegModulosXRolRequiredMessage_segMntoModulos}">

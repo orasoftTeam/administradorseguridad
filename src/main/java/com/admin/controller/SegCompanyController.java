@@ -76,7 +76,8 @@ public class SegCompanyController implements Serializable {
 
     public List<SegCompany> getItems() {
         if (items == null) {
-            items = getFacade().findAll();
+           // items = getFacade().findAll();
+           items = getFacade().obtenerCompanys();
         }
         return items;
     }
