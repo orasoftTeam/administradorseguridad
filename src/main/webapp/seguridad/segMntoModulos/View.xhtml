@@ -12,8 +12,6 @@
             <h:form id="SegMntoModulosViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{segMntoModulosController.selected != null}">
-                        <h:outputText value="#{bundle.ViewSegMntoModulosLabel_idmodulo}"/>
-                        <h:outputText value="#{segMntoModulosController.selected.idmodulo}" title="#{bundle.ViewSegMntoModulosTitle_idmodulo}"/>
                         <h:outputText value="#{bundle.ViewSegMntoModulosLabel_nombremodulo}"/>
                         <h:outputText value="#{segMntoModulosController.selected.nombremodulo}" title="#{bundle.ViewSegMntoModulosTitle_nombremodulo}"/>
                         <h:outputText value="#{bundle.ViewSegMntoModulosLabel_estadomodulo}"/>

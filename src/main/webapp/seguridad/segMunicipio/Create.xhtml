@@ -12,15 +12,13 @@
             <h:form id="SegMunicipioCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{segMunicipioController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateSegMunicipioLabel_idmunicipio}" for="idmunicipio" />
-                        <p:inputText id="idmunicipio" value="#{segMunicipioController.selected.idmunicipio}" title="#{bundle.CreateSegMunicipioTitle_idmunicipio}" required="true" requiredMessage="#{bundle.CreateSegMunicipioRequiredMessage_idmunicipio}"/>
                         <p:outputLabel value="#{bundle.CreateSegMunicipioLabel_nombremunicipio}" for="nombremunicipio" />
                         <p:inputText id="nombremunicipio" value="#{segMunicipioController.selected.nombremunicipio}" title="#{bundle.CreateSegMunicipioTitle_nombremunicipio}" required="true" requiredMessage="#{bundle.CreateSegMunicipioRequiredMessage_nombremunicipio}"/>
                         <p:outputLabel value="#{bundle.CreateSegMunicipioLabel_iddepartamento}" for="iddepartamento" />
                         <p:selectOneMenu id="iddepartamento" value="#{segMunicipioController.selected.iddepartamento}" required="true" requiredMessage="#{bundle.EditSegMunicipioRequiredMessage_iddepartamento}">
                             <f:selectItems value="#{segDepartamentoController.itemsAvailableSelectOne}"
                                            var="iddepartamentoItem"
-                                           itemValue="#{iddepartamentoItem}"/>
+                                           itemValue="#{iddepartamentoItem}" itemLabel="#{iddepartamentoItem.nombredepartamento}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{segMunicipioController.create}" value="#{bundle.Save}" update="display,:SegMunicipioListForm:datalist,:growl" oncomplete="handleSubmit(args,'SegMunicipioCreateDialog');"/>

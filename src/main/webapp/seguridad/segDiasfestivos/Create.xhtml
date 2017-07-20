@@ -12,8 +12,6 @@
             <h:form id="SegDiasfestivosCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{segDiasfestivosController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateSegDiasfestivosLabel_iddiafestivos}" for="iddiafestivos" />
-                        <p:inputText id="iddiafestivos" value="#{segDiasfestivosController.selected.iddiafestivos}" title="#{bundle.CreateSegDiasfestivosTitle_iddiafestivos}" required="true" requiredMessage="#{bundle.CreateSegDiasfestivosRequiredMessage_iddiafestivos}"/>
                         <p:outputLabel value="#{bundle.CreateSegDiasfestivosLabel_nombrediafestivos}" for="nombrediafestivos" />
                         <p:inputText id="nombrediafestivos" value="#{segDiasfestivosController.selected.nombrediafestivos}" title="#{bundle.CreateSegDiasfestivosTitle_nombrediafestivos}" required="true" requiredMessage="#{bundle.CreateSegDiasfestivosRequiredMessage_nombrediafestivos}"/>
                     </p:panelGrid>

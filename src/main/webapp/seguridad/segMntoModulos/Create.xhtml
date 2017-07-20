@@ -12,12 +12,13 @@
             <h:form id="SegMntoModulosCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{segMntoModulosController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateSegMntoModulosLabel_idmodulo}" for="idmodulo" />
-                        <p:inputText id="idmodulo" value="#{segMntoModulosController.selected.idmodulo}" title="#{bundle.CreateSegMntoModulosTitle_idmodulo}" required="true" requiredMessage="#{bundle.CreateSegMntoModulosRequiredMessage_idmodulo}"/>
                         <p:outputLabel value="#{bundle.CreateSegMntoModulosLabel_nombremodulo}" for="nombremodulo" />
-                        <p:inputText id="nombremodulo" value="#{segMntoModulosController.selected.nombremodulo}" title="#{bundle.CreateSegMntoModulosTitle_nombremodulo}" />
-                        <p:outputLabel value="#{bundle.CreateSegMntoModulosLabel_estadomodulo}" for="estadomodulo" />
-                        <p:inputText id="estadomodulo" value="#{segMntoModulosController.selected.estadomodulo}" title="#{bundle.CreateSegMntoModulosTitle_estadomodulo}" />
+                        <p:inputText id="nombremodulo" value="#{segMntoModulosController.selected.nombremodulo}" title="#{bundle.CreateSegMntoModulosTitle_nombremodulo}" required="true" requiredMessage="#{bundle.CreateSegDepartamentoRequiredMessage_nombreModelo}"/>
+                        <p:outputLabel value="#{bundle.EditSegMntoModulosLabel_estadomodulo}" for="estadomodulo" />
+                        <p:selectOneMenu id="estadomodulo" value="#{segMntoModulosController.selected.estadomodulo}">
+                            <f:selectItem itemValue="A" itemLabel="Activo"/>
+                            <f:selectItem itemValue="I" itemLabel="Inactivo"/>
+                        </p:selectOneMenu>   
                     </p:panelGrid>
                     <p:commandButton actionListener="#{segMntoModulosController.create}" value="#{bundle.Save}" update="display,:SegMntoModulosListForm:datalist,:growl" oncomplete="handleSubmit(args,'SegMntoModulosCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="SegMntoModulosCreateDialog.hide()"/>

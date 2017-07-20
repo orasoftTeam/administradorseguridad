@@ -8,15 +8,13 @@
 
     <ui:composition>
 
-        <p:dialog id="SegDepartamentoCreateDlg" widgetVar="SegDepartamentoCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateSegDepartamentoTitle}">
+        <p:dialog id="SegDepartamentoCreateDlg" widgetVar="SegDepartamentoCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.DepNew}">
             <h:form id="SegDepartamentoCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{segDepartamentoController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateSegDepartamentoLabel_iddepartamento}" for="iddepartamento" />
-                        <p:inputText id="iddepartamento" value="#{segDepartamentoController.selected.iddepartamento}" title="#{bundle.CreateSegDepartamentoTitle_iddepartamento}" required="true" requiredMessage="#{bundle.CreateSegDepartamentoRequiredMessage_iddepartamento}"/>
-                        <p:outputLabel value="#{bundle.CreateSegDepartamentoLabel_nombredepartamento}" for="nombredepartamento" />
+                        <p:outputLabel value="#{bundle.Depnom}" for="nombredepartamento" />
                         <p:inputText id="nombredepartamento" value="#{segDepartamentoController.selected.nombredepartamento}" title="#{bundle.CreateSegDepartamentoTitle_nombredepartamento}" required="true" requiredMessage="#{bundle.CreateSegDepartamentoRequiredMessage_nombredepartamento}"/>
-                        <p:outputLabel value="#{bundle.CreateSegDepartamentoLabel_idpais}" for="idpais" />
+                        <p:outputLabel value="#{bundle.Paisnom}" for="idpais" />
                         <p:selectOneMenu id="idpais" value="#{segDepartamentoController.selected.idpais}" required="true" requiredMessage="#{bundle.EditSegDepartamentoRequiredMessage_idpais}">
                             <f:selectItems value="#{segPaisController.itemsAvailableSelectOne}"
                                            var="idpaisItem"

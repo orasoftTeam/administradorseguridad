@@ -29,12 +29,6 @@
 
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListSegCompanyTitle_idcompany}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idcompany}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
                                 <h:outputText value="#{bundle.ListSegCompanyTitle_nombrecompany}"/>
                             </f:facet>
                             <h:outputText value="#{item.nombrecompany}"/>
@@ -53,111 +47,31 @@
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListSegCompanyTitle_paginaweb}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.paginaweb}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListSegCompanyTitle_nivelcompany}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.nivelcompany}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
                                 <h:outputText value="#{bundle.ListSegCompanyTitle_numerocompany}"/>
                             </f:facet>
                             <h:outputText value="#{item.numerocompany}"/>
                         </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListSegCompanyTitle_rutalogocompany}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.rutalogocompany}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListSegCompanyTitle_latitudcompany}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.latitudcompany}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListSegCompanyTitle_longitudcompany}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.longitudcompany}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListSegCompanyTitle_diainiciocompany}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.diainiciocompany}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListSegCompanyTitle_diafincompany}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.diafincompany}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListSegCompanyTitle_horainiciocompany}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.horainiciocompany}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListSegCompanyTitle_horafincompany}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.horafincompany}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListSegCompanyTitle_horainicio2company}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.horainicio2company}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListSegCompanyTitle_horafin2company}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.horafin2company}"/>
-                        </p:column>
+
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListSegCompanyTitle_estadocompany}"/>
                             </f:facet>
-                            <h:outputText value="#{item.estadocompany}"/>
+<!--                            <h:outputText value="#{item.estadocompany}"/>-->
+                                <h:outputText value="ACTIVO" rendered="#{item.estadocompany eq 'A'}"/>
+                                <h:outputText value="INACTIVO" rendered="#{item.estadocompany eq 'I'}"/>
                         </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListSegCompanyTitle_visioncompany}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.visioncompany}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListSegCompanyTitle_misioncompany}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.misioncompany}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListSegCompanyTitle_descripcioncompany}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.descripcioncompany}"/>
-                        </p:column>
+
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListSegCompanyTitle_idrubro}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idrubro}"/>
+                            <h:outputText value="#{item.idrubro.nombrerubro}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListSegCompanyTitle_idmunicipio}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idmunicipio}"/>
+                            <h:outputText value="#{item.idmunicipio.nombremunicipio}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{segCompanyController.prepareCreate}" update=":SegCompanyCreateForm" oncomplete="PF('SegCompanyCreateDialog').show()"/>

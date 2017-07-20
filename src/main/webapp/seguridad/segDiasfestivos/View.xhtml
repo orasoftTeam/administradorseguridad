@@ -12,8 +12,6 @@
             <h:form id="SegDiasfestivosViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{segDiasfestivosController.selected != null}">
-                        <h:outputText value="#{bundle.ViewSegDiasfestivosLabel_iddiafestivos}"/>
-                        <h:outputText value="#{segDiasfestivosController.selected.iddiafestivos}" title="#{bundle.ViewSegDiasfestivosTitle_iddiafestivos}"/>
                         <h:outputText value="#{bundle.ViewSegDiasfestivosLabel_nombrediafestivos}"/>
                         <h:outputText value="#{segDiasfestivosController.selected.nombrediafestivos}" title="#{bundle.ViewSegDiasfestivosTitle_nombrediafestivos}"/>
                     </p:panelGrid>

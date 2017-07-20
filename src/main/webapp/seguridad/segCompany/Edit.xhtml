@@ -11,9 +11,7 @@
         <p:dialog id="SegCompanyEditDlg" widgetVar="SegCompanyEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditSegCompanyTitle}">
             <h:form id="SegCompanyEditForm">
                 <h:panelGroup id="display">
-                    <p:panelGrid columns="2" rendered="#{segCompanyController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditSegCompanyLabel_idcompany}" for="idcompany" />
-                        <p:inputText id="idcompany" value="#{segCompanyController.selected.idcompany}" title="#{bundle.EditSegCompanyTitle_idcompany}" required="true" requiredMessage="#{bundle.EditSegCompanyRequiredMessage_idcompany}"/>
+                    <p:panelGrid columns="4" rendered="#{segCompanyController.selected != null}">
                         <p:outputLabel value="#{bundle.EditSegCompanyLabel_nombrecompany}" for="nombrecompany" />
                         <p:inputText id="nombrecompany" value="#{segCompanyController.selected.nombrecompany}" title="#{bundle.EditSegCompanyTitle_nombrecompany}" required="true" requiredMessage="#{bundle.EditSegCompanyRequiredMessage_nombrecompany}"/>
                         <p:outputLabel value="#{bundle.EditSegCompanyLabel_direccioncompany}" for="direccioncompany" />
@@ -45,7 +43,7 @@
                         <p:outputLabel value="#{bundle.EditSegCompanyLabel_horafin2company}" for="horafin2company" />
                         <p:inputText id="horafin2company" value="#{segCompanyController.selected.horafin2company}" title="#{bundle.EditSegCompanyTitle_horafin2company}" />
                         <p:outputLabel value="#{bundle.EditSegCompanyLabel_estadocompany}" for="estadocompany" />
-                        <p:inputText id="estadocompany" value="#{segCompanyController.selected.estadocompany}" title="#{bundle.EditSegCompanyTitle_estadocompany}" />
+                        <!--<p:inputText id="estadocompany" value="#{segCompanyController.selected.estadocompany}" title="#{bundle.EditSegCompanyTitle_estadocompany}" />-->
                         <p:outputLabel value="#{bundle.EditSegCompanyLabel_visioncompany}" for="visioncompany" />
                         <p:inputTextarea rows="4" cols="30" id="visioncompany" value="#{segCompanyController.selected.visioncompany}" title="#{bundle.EditSegCompanyTitle_visioncompany}" />
                         <p:outputLabel value="#{bundle.EditSegCompanyLabel_misioncompany}" for="misioncompany" />
@@ -57,14 +55,14 @@
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{segRubroController.itemsAvailableSelectOne}"
                                            var="idrubroItem"
-                                           itemValue="#{idrubroItem}"/>
+                                           itemValue="#{idrubroItem}" itemLabel="#{idrubroItem.nombrerubro}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.EditSegCompanyLabel_idmunicipio}" for="idmunicipio" />
                         <p:selectOneMenu id="idmunicipio" value="#{segCompanyController.selected.idmunicipio}" required="true" requiredMessage="#{bundle.EditSegCompanyRequiredMessage_idmunicipio}">
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{segMunicipioController.itemsAvailableSelectOne}"
                                            var="idmunicipioItem"
-                                           itemValue="#{idmunicipioItem}"/>
+                                           itemValue="#{idmunicipioItem}" itemLabel="#{idmunicipioItem.nombremunicipio}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{segCompanyController.update}" value="#{bundle.Save}" update="display,:SegCompanyListForm:datalist,:growl" oncomplete="handleSubmit(args, 'SegCompanyEditDialog');"/>

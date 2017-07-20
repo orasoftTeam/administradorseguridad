@@ -12,8 +12,6 @@
             <h:form id="SegCompanyViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{segCompanyController.selected != null}">
-                        <h:outputText value="#{bundle.ViewSegCompanyLabel_idcompany}"/>
-                        <h:outputText value="#{segCompanyController.selected.idcompany}" title="#{bundle.ViewSegCompanyTitle_idcompany}"/>
                         <h:outputText value="#{bundle.ViewSegCompanyLabel_nombrecompany}"/>
                         <h:outputText value="#{segCompanyController.selected.nombrecompany}" title="#{bundle.ViewSegCompanyTitle_nombrecompany}"/>
                         <h:outputText value="#{bundle.ViewSegCompanyLabel_direccioncompany}"/>
@@ -45,7 +43,8 @@
                         <h:outputText value="#{bundle.ViewSegCompanyLabel_horafin2company}"/>
                         <h:outputText value="#{segCompanyController.selected.horafin2company}" title="#{bundle.ViewSegCompanyTitle_horafin2company}"/>
                         <h:outputText value="#{bundle.ViewSegCompanyLabel_estadocompany}"/>
-                        <h:outputText value="#{segCompanyController.selected.estadocompany}" title="#{bundle.ViewSegCompanyTitle_estadocompany}"/>
+                        <h:outputText value="ACTIVO" rendered="#{segCompanyController.selected.estadocompany eq 'A'}"/>
+                        <h:outputText value="INACTIVO" rendered="#{segCompanyController.selected.estadocompany eq 'I'}"/>
                         <h:outputText value="#{bundle.ViewSegCompanyLabel_visioncompany}"/>
                         <h:outputText value="#{segCompanyController.selected.visioncompany}" title="#{bundle.ViewSegCompanyTitle_visioncompany}"/>
                         <h:outputText value="#{bundle.ViewSegCompanyLabel_misioncompany}"/>
@@ -53,9 +52,9 @@
                         <h:outputText value="#{bundle.ViewSegCompanyLabel_descripcioncompany}"/>
                         <h:outputText value="#{segCompanyController.selected.descripcioncompany}" title="#{bundle.ViewSegCompanyTitle_descripcioncompany}"/>
                         <h:outputText value="#{bundle.ViewSegCompanyLabel_idrubro}"/>
-                        <h:outputText value="#{segCompanyController.selected.idrubro}" title="#{bundle.ViewSegCompanyTitle_idrubro}"/>
+                        <h:outputText value="#{segCompanyController.selected.idrubro.nombrerubro}" title="#{bundle.ViewSegCompanyTitle_idrubro}"/>
                         <h:outputText value="#{bundle.ViewSegCompanyLabel_idmunicipio}"/>
-                        <h:outputText value="#{segCompanyController.selected.idmunicipio}" title="#{bundle.ViewSegCompanyTitle_idmunicipio}"/>
+                        <h:outputText value="#{segCompanyController.selected.idmunicipio.nombremunicipio}" title="#{bundle.ViewSegCompanyTitle_idmunicipio}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="SegCompanyViewDialog.hide()"/>
                 </h:panelGroup>

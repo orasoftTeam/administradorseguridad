@@ -12,8 +12,6 @@
             <h:form id="SegMunicipioEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{segMunicipioController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditSegMunicipioLabel_idmunicipio}" for="idmunicipio" />
-                        <p:inputText id="idmunicipio" value="#{segMunicipioController.selected.idmunicipio}" title="#{bundle.EditSegMunicipioTitle_idmunicipio}" required="true" requiredMessage="#{bundle.EditSegMunicipioRequiredMessage_idmunicipio}"/>
                         <p:outputLabel value="#{bundle.EditSegMunicipioLabel_nombremunicipio}" for="nombremunicipio" />
                         <p:inputText id="nombremunicipio" value="#{segMunicipioController.selected.nombremunicipio}" title="#{bundle.EditSegMunicipioTitle_nombremunicipio}" required="true" requiredMessage="#{bundle.EditSegMunicipioRequiredMessage_nombremunicipio}"/>
                         <p:outputLabel value="#{bundle.EditSegMunicipioLabel_iddepartamento}" for="iddepartamento" />
@@ -21,7 +19,7 @@
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{segDepartamentoController.itemsAvailableSelectOne}"
                                            var="iddepartamentoItem"
-                                           itemValue="#{iddepartamentoItem}"/>
+                                           itemValue="#{iddepartamentoItem}" itemLabel="#{iddepartamentoItem.nombredepartamento}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{segMunicipioController.update}" value="#{bundle.Save}" update="display,:SegMunicipioListForm:datalist,:growl" oncomplete="handleSubmit(args, 'SegMunicipioEditDialog');"/>
