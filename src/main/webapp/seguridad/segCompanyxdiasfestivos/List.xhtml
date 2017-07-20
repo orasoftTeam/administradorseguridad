@@ -37,13 +37,13 @@
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListSegCompanyxdiasfestivosTitle_iddiafestivos}"/>
                             </f:facet>
-                            <h:outputText value="#{item.iddiafestivos}"/>
+                            <h:outputText value="#{item.iddiafestivos.nombrediafestivos}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListSegCompanyxdiasfestivosTitle_idcompany}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idcompany}"/>
+                            <h:outputText value="#{item.idcompany.nombrecompany}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{segCompanyxdiasfestivosController.prepareCreate}" update=":SegCompanyxdiasfestivosCreateForm" oncomplete="PF('SegCompanyxdiasfestivosCreateDialog').show()"/>

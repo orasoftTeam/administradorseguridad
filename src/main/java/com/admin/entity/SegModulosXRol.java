@@ -6,6 +6,7 @@
 package com.admin.entity;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
@@ -28,7 +29,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "SegModulosXRol.findAll", query = "SELECT s FROM SegModulosXRol s"),
     @NamedQuery(name = "SegModulosXRol.findByIdcompany", query = "SELECT s FROM SegModulosXRol s WHERE s.segModulosXRolPK.idcompany = :idcompany"),
-    @NamedQuery(name = "SegModulosXRol.findByIdrolcia", query = "SELECT s FROM SegModulosXRol s WHERE s.segModulosXRolPK.idrolcia = :idrolcia"),
+    //@NamedQuery(name = "SegModulosXRol.findByIdrolcia", query = "SELECT s FROM SegModulosXRol s WHERE s.segModulosXRolPK.idrolcia = :idrolcia"),
     @NamedQuery(name = "SegModulosXRol.findByIdmodulo", query = "SELECT s FROM SegModulosXRol s WHERE s.segModulosXRolPK.idmodulo = :idmodulo"),
     @NamedQuery(name = "SegModulosXRol.findBySecuencia", query = "SELECT s FROM SegModulosXRol s WHERE s.secuencia = :secuencia"),
     @NamedQuery(name = "SegModulosXRol.findByNivel", query = "SELECT s FROM SegModulosXRol s WHERE s.nivel = :nivel"),
@@ -53,9 +54,9 @@ public class SegModulosXRol implements Serializable {
     @Size(max = 30)
     @Column(name = "CODAPLIC")
     private String codaplic;
-    @JoinColumn(name = "IDROLCIA", referencedColumnName = "IDROLCIA", insertable = false, updatable = false)
+    @JoinColumn(name = "IDROL", referencedColumnName = "IDROL", insertable = false, updatable = false)
     @ManyToOne(optional = false)
-    private SegRolcompany segRolcompany;
+    private SegRol segRol;
     @JoinColumn(name = "IDMODULO", referencedColumnName = "IDMODULO", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private SegMntoModulos segMntoModulos;
@@ -70,8 +71,8 @@ public class SegModulosXRol implements Serializable {
         this.segModulosXRolPK = segModulosXRolPK;
     }
 
-    public SegModulosXRol(BigInteger idcompany, String idrolcia, String idmodulo) {
-        this.segModulosXRolPK = new SegModulosXRolPK(idcompany, idrolcia, idmodulo);
+    public SegModulosXRol(BigInteger idcompany, BigDecimal idrol, String idmodulo) {
+        this.segModulosXRolPK = new SegModulosXRolPK(idcompany, idrol, idmodulo);
     }
 
     public SegModulosXRolPK getSegModulosXRolPK() {
@@ -122,12 +123,12 @@ public class SegModulosXRol implements Serializable {
         this.codaplic = codaplic;
     }
 
-    public SegRolcompany getSegRolcompany() {
-        return segRolcompany;
+    public SegRol getSegRol() {
+        return segRol;
     }
 
-    public void setSegRolcompany(SegRolcompany segRolcompany) {
-        this.segRolcompany = segRolcompany;
+    public void setSegRol(SegRol segRol) {
+        this.segRol = segRol;
     }
 
     public SegMntoModulos getSegMntoModulos() {

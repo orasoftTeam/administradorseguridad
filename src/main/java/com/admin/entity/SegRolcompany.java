@@ -58,8 +58,6 @@ public class SegRolcompany implements Serializable {
     @JoinColumn(name = "IDCOMPANY", referencedColumnName = "IDCOMPANY")
     @ManyToOne(optional = false)
     private SegCompany idcompany;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "segRolcompany")
-    private List<SegModulosXRol> segModulosXRolList;
 
     public SegRolcompany() {
     }
@@ -100,6 +98,7 @@ public class SegRolcompany implements Serializable {
         this.idcompany = idcompany;
     }
 
+    /*
     @XmlTransient
     public List<SegModulosXRol> getSegModulosXRolList() {
         return segModulosXRolList;
@@ -108,7 +107,7 @@ public class SegRolcompany implements Serializable {
     public void setSegModulosXRolList(List<SegModulosXRol> segModulosXRolList) {
         this.segModulosXRolList = segModulosXRolList;
     }
-
+*/
     @Override
     public int hashCode() {
         int hash = 0;
