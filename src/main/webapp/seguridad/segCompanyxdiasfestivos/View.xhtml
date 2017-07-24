@@ -12,12 +12,10 @@
             <h:form id="SegCompanyxdiasfestivosViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{segCompanyxdiasfestivosController.selected != null}">
-                        <h:outputText value="#{bundle.ViewSegCompanyxdiasfestivosLabel_idcompanyxdiafestivos}"/>
-                        <h:outputText value="#{segCompanyxdiasfestivosController.selected.idcompanyxdiafestivos}" title="#{bundle.ViewSegCompanyxdiasfestivosTitle_idcompanyxdiafestivos}"/>
                         <h:outputText value="#{bundle.ViewSegCompanyxdiasfestivosLabel_iddiafestivos}"/>
-                        <h:outputText value="#{segCompanyxdiasfestivosController.selected.iddiafestivos}" title="#{bundle.ViewSegCompanyxdiasfestivosTitle_iddiafestivos}"/>
+                        <h:outputText value="#{segCompanyxdiasfestivosController.selected.iddiafestivos.nombrediafestivos}" title="#{bundle.ViewSegCompanyxdiasfestivosTitle_iddiafestivos}"/>
                         <h:outputText value="#{bundle.ViewSegCompanyxdiasfestivosLabel_idcompany}"/>
-                        <h:outputText value="#{segCompanyxdiasfestivosController.selected.idcompany}" title="#{bundle.ViewSegCompanyxdiasfestivosTitle_idcompany}"/>
+                        <h:outputText value="#{segCompanyxdiasfestivosController.selected.idcompany.nombrecompany}" title="#{bundle.ViewSegCompanyxdiasfestivosTitle_idcompany}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="SegCompanyxdiasfestivosViewDialog.hide()"/>
                 </h:panelGroup>

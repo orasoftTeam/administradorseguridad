@@ -14,8 +14,11 @@
                     <p:panelGrid columns="2" rendered="#{segMenusXModuloController.selected != null}">
                         <p:outputLabel value="#{bundle.CreateSegMenusXModuloLabel_nombremenu}" for="nombremenu" />
                         <p:inputText id="nombremenu" value="#{segMenusXModuloController.selected.nombremenu}" title="#{bundle.CreateSegMenusXModuloTitle_nombremenu}" />
-                        <p:outputLabel value="#{bundle.CreateSegMenusXModuloLabel_estadomenu}" for="estadomenu" />
-                        <p:inputText id="estadomenu" value="#{segMenusXModuloController.selected.estadomenu}" title="#{bundle.CreateSegMenusXModuloTitle_estadomenu}" />
+                        <p:outputLabel value="#{bundle.CreateSegCompanyLabel_estadocompany}" for="estadoMnMod" />
+                        <p:selectOneMenu id="estadoMnMod" value="#{segMenusXModuloController.selected.estadomenu}">
+                            <f:selectItem itemValue="A" itemLabel="Activo"/>
+                            <f:selectItem itemValue="I" itemLabel="Inactivo"/>
+                        </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.CreateSegMenusXModuloLabel_nivel}" for="nivel" />
                         <p:inputText id="nivel" value="#{segMenusXModuloController.selected.nivel}" title="#{bundle.CreateSegMenusXModuloTitle_nivel}" />
                         <p:outputLabel value="#{bundle.CreateSegMenusXModuloLabel_secuencia}" for="secuencia" />
@@ -32,13 +35,13 @@
                         <p:selectOneMenu id="segMntoModulos" value="#{segMenusXModuloController.selected.segMntoModulos}" required="true" requiredMessage="#{bundle.EditSegMenusXModuloRequiredMessage_segMntoModulos}">
                             <f:selectItems value="#{segMntoModulosController.itemsAvailableSelectOne}"
                                            var="segMntoModulosItem"
-                                           itemValue="#{segMntoModulosItem}"/>
+                                           itemValue="#{segMntoModulosItem}" itemLabel="#{segMntoModulosItem.nombremodulo}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.CreateSegMenusXModuloLabel_segCompany}" for="segCompany" />
                         <p:selectOneMenu id="segCompany" value="#{segMenusXModuloController.selected.segCompany}" required="true" requiredMessage="#{bundle.EditSegMenusXModuloRequiredMessage_segCompany}">
                             <f:selectItems value="#{segCompanyController.itemsAvailableSelectOne}"
                                            var="segCompanyItem"
-                                           itemValue="#{segCompanyItem}"/>
+                                           itemValue="#{segCompanyItem}" itemLabel="#{segCompanyItem.nombrecompany}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{segMenusXModuloController.create}" value="#{bundle.Save}" update="display,:SegMenusXModuloListForm:datalist,:growl" oncomplete="handleSubmit(args,'SegMenusXModuloCreateDialog');"/>

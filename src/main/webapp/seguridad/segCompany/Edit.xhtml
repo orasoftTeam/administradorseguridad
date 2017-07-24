@@ -42,23 +42,26 @@
                         <p:inputText id="horainicio2company" value="#{segCompanyController.selected.horainicio2company}" title="#{bundle.EditSegCompanyTitle_horainicio2company}" />
                         <p:outputLabel value="#{bundle.EditSegCompanyLabel_horafin2company}" for="horafin2company" />
                         <p:inputText id="horafin2company" value="#{segCompanyController.selected.horafin2company}" title="#{bundle.EditSegCompanyTitle_horafin2company}" />
-                        <p:outputLabel value="#{bundle.EditSegCompanyLabel_estadocompany}" for="estadocompany" />
-                        <!--<p:inputText id="estadocompany" value="#{segCompanyController.selected.estadocompany}" title="#{bundle.EditSegCompanyTitle_estadocompany}" />-->
+                        <p:outputLabel value="#{bundle.EditSegMntoModulosLabel_estadomodulo}" for="estadocompania" />
+                        <p:selectOneMenu id="estadocompania" value="#{segCompanyController.selected.estadocompany}" >
+                            <f:selectItem itemValue="A" itemLabel="Activo"/>
+                            <f:selectItem itemValue="I" itemLabel="Inactivo"/>
+                        </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.EditSegCompanyLabel_visioncompany}" for="visioncompany" />
                         <p:inputTextarea rows="4" cols="30" id="visioncompany" value="#{segCompanyController.selected.visioncompany}" title="#{bundle.EditSegCompanyTitle_visioncompany}" />
                         <p:outputLabel value="#{bundle.EditSegCompanyLabel_misioncompany}" for="misioncompany" />
                         <p:inputTextarea rows="4" cols="30" id="misioncompany" value="#{segCompanyController.selected.misioncompany}" title="#{bundle.EditSegCompanyTitle_misioncompany}" />
                         <p:outputLabel value="#{bundle.EditSegCompanyLabel_descripcioncompany}" for="descripcioncompany" />
                         <p:inputTextarea rows="4" cols="30" id="descripcioncompany" value="#{segCompanyController.selected.descripcioncompany}" title="#{bundle.EditSegCompanyTitle_descripcioncompany}" />
-                        <p:outputLabel value="#{bundle.EditSegCompanyLabel_idrubro}" for="idrubro" />
-                        <p:selectOneMenu id="idrubro" value="#{segCompanyController.selected.idrubro}" required="true" requiredMessage="#{bundle.EditSegCompanyRequiredMessage_idrubro}">
+                        <p:outputLabel value="#{bundle.EditSegCompanyLabel_idrubro}" for="rubro" />
+                        <p:selectOneMenu id="rubro" value="#{segCompanyController.selected.idrubro}" required="true" requiredMessage="#{bundle.EditSegCompanyRequiredMessage_idrubro}">
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{segRubroController.itemsAvailableSelectOne}"
                                            var="idrubroItem"
                                            itemValue="#{idrubroItem}" itemLabel="#{idrubroItem.nombrerubro}"/>
                         </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.EditSegCompanyLabel_idmunicipio}" for="idmunicipio" />
-                        <p:selectOneMenu id="idmunicipio" value="#{segCompanyController.selected.idmunicipio}" required="true" requiredMessage="#{bundle.EditSegCompanyRequiredMessage_idmunicipio}">
+                        <p:outputLabel value="#{bundle.EditSegCompanyLabel_idmunicipio}" for="municipio" />
+                        <p:selectOneMenu id="municipio" value="#{segCompanyController.selected.idmunicipio}" required="true" requiredMessage="#{bundle.EditSegCompanyRequiredMessage_idmunicipio}">
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{segMunicipioController.itemsAvailableSelectOne}"
                                            var="idmunicipioItem"

@@ -10,11 +10,14 @@ import java.math.BigDecimal;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -40,10 +43,12 @@ public class SegCompanyxservicio implements Serializable {
     @Id
     @Basic(optional = false)
     @NotNull
+    @GeneratedValue (strategy = GenerationType.SEQUENCE, generator = "SERVCOM_SEQ")
+    @SequenceGenerator(name = "SERVCOM_SEQ", sequenceName = "SQE_IDCONSXSERVICIOS", allocationSize = 1)
     @Column(name = "IDCOMPANYXSERVICIO")
     private BigDecimal idcompanyxservicio;
-    @Basic(optional = false)
-    @NotNull
+//    @Basic(optional = false)
+//    @NotNull
     @Column(name = "PRECIOCOMXSERVICIO")
     private BigDecimal preciocomxservicio;
     @Basic(optional = false)

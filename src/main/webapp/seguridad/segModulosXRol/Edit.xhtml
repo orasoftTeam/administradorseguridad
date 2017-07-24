@@ -12,36 +12,28 @@
             <h:form id="SegModulosXRolEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{segModulosXRolController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditSegModulosXRolLabel_secuencia}" for="secuencia" />
-                        <p:inputText id="secuencia" value="#{segModulosXRolController.selected.secuencia}" title="#{bundle.EditSegModulosXRolTitle_secuencia}" />
-                        <p:outputLabel value="#{bundle.EditSegModulosXRolLabel_nivel}" for="nivel" />
-                        <p:inputText id="nivel" value="#{segModulosXRolController.selected.nivel}" title="#{bundle.EditSegModulosXRolTitle_nivel}" />
-                        <p:outputLabel value="#{bundle.EditSegModulosXRolLabel_indforma}" for="indforma" />
-                        <p:inputText id="indforma" value="#{segModulosXRolController.selected.indforma}" title="#{bundle.EditSegModulosXRolTitle_indforma}" />
                         <p:outputLabel value="#{bundle.EditSegModulosXRolLabel_opcion}" for="opcion" />
                         <p:inputText id="opcion" value="#{segModulosXRolController.selected.opcion}" title="#{bundle.EditSegModulosXRolTitle_opcion}" />
-                        <p:outputLabel value="#{bundle.EditSegModulosXRolLabel_codaplic}" for="codaplic" />
-                        <p:inputText id="codaplic" value="#{segModulosXRolController.selected.codaplic}" title="#{bundle.EditSegModulosXRolTitle_codaplic}" />
                         <p:outputLabel value="#{bundle.EditSegModulosXRolLabel_segRolcompany}" for="segRolcompany" />
                         <p:selectOneMenu id="segRolcompany" value="#{segModulosXRolController.selected.segRol}" required="true" requiredMessage="#{bundle.EditSegModulosXRolRequiredMessage_segRolcompany}">
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{segRolController.itemsAvailableSelectOne}"
                                            var="segRolItem"
-                                           itemValue="#{segRolItem}"/>
+                                           itemValue="#{segRolItem}" itemLabel="#{segRolItem.nombrerol}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.EditSegModulosXRolLabel_segMntoModulos}" for="segMntoModulos" />
                         <p:selectOneMenu id="segMntoModulos" value="#{segModulosXRolController.selected.segMntoModulos}" required="true" requiredMessage="#{bundle.EditSegModulosXRolRequiredMessage_segMntoModulos}">
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{segMntoModulosController.itemsAvailableSelectOne}"
                                            var="segMntoModulosItem"
-                                           itemValue="#{segMntoModulosItem}"/>
+                                           itemValue="#{segMntoModulosItem}" itemLabel="#{segMntoModulosItem.nombremodulo}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.EditSegModulosXRolLabel_segCompany}" for="segCompany" />
                         <p:selectOneMenu id="segCompany" value="#{segModulosXRolController.selected.segCompany}" required="true" requiredMessage="#{bundle.EditSegModulosXRolRequiredMessage_segCompany}">
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{segCompanyController.itemsAvailableSelectOne}"
                                            var="segCompanyItem"
-                                           itemValue="#{segCompanyItem}"/>
+                                           itemValue="#{segCompanyItem}" itemLabel="#{segCompanyItem.nombrecompany}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{segModulosXRolController.update}" value="#{bundle.Save}" update="display,:SegModulosXRolListForm:datalist,:growl" oncomplete="handleSubmit(args, 'SegModulosXRolEditDialog');"/>

@@ -6,6 +6,7 @@ import com.admin.util.JsfUtil.PersistAction;
 import com.admin.facade.SegRolFacade;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -134,9 +135,9 @@ public class SegRolController implements Serializable {
             return controller.getSegRol(getKey(value));
         }
 
-        java.math.BigDecimal getKey(String value) {
-            java.math.BigDecimal key;
-            key = new java.math.BigDecimal(value);
+        BigDecimal getKey(String value) {
+            BigDecimal key;
+            key = new BigDecimal(value);
             return key;
         }
 

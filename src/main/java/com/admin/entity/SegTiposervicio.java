@@ -44,7 +44,7 @@ public class SegTiposervicio implements Serializable {
     @Basic(optional = false)
     @NotNull
     @GeneratedValue (strategy = GenerationType.SEQUENCE, generator = "TIPOSERVICIO_SEQ")
-    @SequenceGenerator(name = "TIPOSERVICIO_SEQ", sequenceName = "sqe_idtiposerv", allocationSize = 1)
+    @SequenceGenerator(name = "TIPOSERVICIO_SEQ", sequenceName = "SQE_IDTIPOSERV", allocationSize = 1)
     @Column(name = "IDTIPOSERVICIO")
     private BigDecimal idtiposervicio;
     //@Basic(optional = false)

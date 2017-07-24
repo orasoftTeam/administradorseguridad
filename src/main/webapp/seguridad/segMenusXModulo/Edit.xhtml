@@ -14,8 +14,11 @@
                     <p:panelGrid columns="2" rendered="#{segMenusXModuloController.selected != null}">
                         <p:outputLabel value="#{bundle.EditSegMenusXModuloLabel_nombremenu}" for="nombremenu" />
                         <p:inputText id="nombremenu" value="#{segMenusXModuloController.selected.nombremenu}" title="#{bundle.EditSegMenusXModuloTitle_nombremenu}" />
-                        <p:outputLabel value="#{bundle.EditSegMenusXModuloLabel_estadomenu}" for="estadomenu" />
-                        <p:inputText id="estadomenu" value="#{segMenusXModuloController.selected.estadomenu}" title="#{bundle.EditSegMenusXModuloTitle_estadomenu}" />
+                        <p:outputLabel value="#{bundle.CreateSegCompanyLabel_estadocompany}" for="estadoMnMod" />
+                        <p:selectOneMenu id="estadoMnMod" value="#{segMenusXModuloController.selected.estadomenu}">
+                            <f:selectItem itemValue="A" itemLabel="Activo"/>
+                            <f:selectItem itemValue="I" itemLabel="Inactivo"/>
+                        </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.EditSegMenusXModuloLabel_nivel}" for="nivel" />
                         <p:inputText id="nivel" value="#{segMenusXModuloController.selected.nivel}" title="#{bundle.EditSegMenusXModuloTitle_nivel}" />
                         <p:outputLabel value="#{bundle.EditSegMenusXModuloLabel_secuencia}" for="secuencia" />
@@ -33,14 +36,14 @@
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{segMntoModulosController.itemsAvailableSelectOne}"
                                            var="segMntoModulosItem"
-                                           itemValue="#{segMntoModulosItem}"/>
+                                           itemValue="#{segMntoModulosItem}" itemLabel="#{segMntoModulosItem.nombremodulo}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.EditSegMenusXModuloLabel_segCompany}" for="segCompany" />
                         <p:selectOneMenu id="segCompany" value="#{segMenusXModuloController.selected.segCompany}" required="true" requiredMessage="#{bundle.EditSegMenusXModuloRequiredMessage_segCompany}">
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{segCompanyController.itemsAvailableSelectOne}"
                                            var="segCompanyItem"
-                                           itemValue="#{segCompanyItem}"/>
+                                           itemValue="#{segCompanyItem}" itemLabel="#{segCompanyItem.nombrecompany}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{segMenusXModuloController.update}" value="#{bundle.Save}" update="display,:SegMenusXModuloListForm:datalist,:growl" oncomplete="handleSubmit(args, 'SegMenusXModuloEditDialog');"/>

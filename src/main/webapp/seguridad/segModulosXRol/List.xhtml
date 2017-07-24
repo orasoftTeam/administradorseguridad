@@ -29,34 +29,11 @@
 
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListSegModulosXRolTitle_secuencia}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.secuencia}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListSegModulosXRolTitle_nivel}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.nivel}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListSegModulosXRolTitle_indforma}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.indforma}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
                                 <h:outputText value="#{bundle.ListSegModulosXRolTitle_opcion}"/>
                             </f:facet>
                             <h:outputText value="#{item.opcion}"/>
                         </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListSegModulosXRolTitle_codaplic}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.codaplic}"/>
-                        </p:column>
+                        
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListSegModulosXRolTitle_segRolcompany}"/>
@@ -67,13 +44,13 @@
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListSegModulosXRolTitle_segMntoModulos}"/>
                             </f:facet>
-                            <h:outputText value="#{item.segMntoModulos}"/>
+                            <h:outputText value="#{item.segMntoModulos.nombremodulo}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListSegModulosXRolTitle_segCompany}"/>
                             </f:facet>
-                            <h:outputText value="#{item.segCompany}"/>
+                            <h:outputText value="#{item.segCompany.nombrecompany}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{segModulosXRolController.prepareCreate}" update=":SegModulosXRolCreateForm" oncomplete="PF('SegModulosXRolCreateDialog').show()"/>

@@ -12,8 +12,6 @@
             <h:form id="SegCompanyxdiasfestivosEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{segCompanyxdiasfestivosController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditSegCompanyxdiasfestivosLabel_idcompanyxdiafestivos}" for="idcompanyxdiafestivos" />
-                        <p:inputText id="idcompanyxdiafestivos" value="#{segCompanyxdiasfestivosController.selected.idcompanyxdiafestivos}" title="#{bundle.EditSegCompanyxdiasfestivosTitle_idcompanyxdiafestivos}" required="true" requiredMessage="#{bundle.EditSegCompanyxdiasfestivosRequiredMessage_idcompanyxdiafestivos}"/>
                         <p:outputLabel value="#{bundle.EditSegCompanyxdiasfestivosLabel_iddiafestivos}" for="iddiafestivos" />
                         <p:selectOneMenu id="iddiafestivos" value="#{segCompanyxdiasfestivosController.selected.iddiafestivos}" required="true" requiredMessage="#{bundle.EditSegCompanyxdiasfestivosRequiredMessage_iddiafestivos}">
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>

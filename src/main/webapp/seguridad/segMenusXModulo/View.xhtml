@@ -15,7 +15,8 @@
                         <h:outputText value="#{bundle.ViewSegMenusXModuloLabel_nombremenu}"/>
                         <h:outputText value="#{segMenusXModuloController.selected.nombremenu}" title="#{bundle.ViewSegMenusXModuloTitle_nombremenu}"/>
                         <h:outputText value="#{bundle.ViewSegMenusXModuloLabel_estadomenu}"/>
-                        <h:outputText value="#{segMenusXModuloController.selected.estadomenu}" title="#{bundle.ViewSegMenusXModuloTitle_estadomenu}"/>
+                        <h:outputText value="ACTIVO" rendered="#{segMenusXModuloController.selected.estadomenu eq 'A'}"/>
+                        <h:outputText value="INACTIVO" rendered="#{segMenusXModuloController.selected.estadomenu eq 'I'}"/>
                         <h:outputText value="#{bundle.ViewSegMenusXModuloLabel_nivel}"/>
                         <h:outputText value="#{segMenusXModuloController.selected.nivel}" title="#{bundle.ViewSegMenusXModuloTitle_nivel}"/>
                         <h:outputText value="#{bundle.ViewSegMenusXModuloLabel_secuencia}"/>
@@ -29,9 +30,9 @@
                         <h:outputText value="#{bundle.ViewSegMenusXModuloLabel_indaplica}"/>
                         <h:outputText value="#{segMenusXModuloController.selected.indaplica}" title="#{bundle.ViewSegMenusXModuloTitle_indaplica}"/>
                         <h:outputText value="#{bundle.ViewSegMenusXModuloLabel_segMntoModulos}"/>
-                        <h:outputText value="#{segMenusXModuloController.selected.segMntoModulos}" title="#{bundle.ViewSegMenusXModuloTitle_segMntoModulos}"/>
+                        <h:outputText value="#{segMenusXModuloController.selected.segMntoModulos.nombremodulo}" title="#{bundle.ViewSegMenusXModuloTitle_segMntoModulos}"/>
                         <h:outputText value="#{bundle.ViewSegMenusXModuloLabel_segCompany}"/>
-                        <h:outputText value="#{segMenusXModuloController.selected.segCompany}" title="#{bundle.ViewSegMenusXModuloTitle_segCompany}"/>
+                        <h:outputText value="#{segMenusXModuloController.selected.segCompany.nombrecompany}" title="#{bundle.ViewSegMenusXModuloTitle_segCompany}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="SegMenusXModuloViewDialog.hide()"/>
                 </h:panelGroup>

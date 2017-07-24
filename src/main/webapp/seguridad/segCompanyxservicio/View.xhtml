@@ -12,18 +12,17 @@
             <h:form id="SegCompanyxservicioViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{segCompanyxservicioController.selected != null}">
-                        <h:outputText value="#{bundle.ViewSegCompanyxservicioLabel_idcompanyxservicio}"/>
-                        <h:outputText value="#{segCompanyxservicioController.selected.idcompanyxservicio}" title="#{bundle.ViewSegCompanyxservicioTitle_idcompanyxservicio}"/>
                         <h:outputText value="#{bundle.ViewSegCompanyxservicioLabel_preciocomxservicio}"/>
                         <h:outputText value="#{segCompanyxservicioController.selected.preciocomxservicio}" title="#{bundle.ViewSegCompanyxservicioTitle_preciocomxservicio}"/>
                         <h:outputText value="#{bundle.ViewSegCompanyxservicioLabel_horariocomxservicio}"/>
                         <h:outputText value="#{segCompanyxservicioController.selected.horariocomxservicio}" title="#{bundle.ViewSegCompanyxservicioTitle_horariocomxservicio}"/>
                         <h:outputText value="#{bundle.ViewSegCompanyxservicioLabel_estadoservicio}"/>
-                        <h:outputText value="#{segCompanyxservicioController.selected.estadoservicio}" title="#{bundle.ViewSegCompanyxservicioTitle_estadoservicio}"/>
+                        <h:outputText value="ACTIVO" rendered="#{segCompanyxservicioController.selected.estadoservicio eq 'A'}"/>
+                        <h:outputText value="INACTIVO" rendered="#{segCompanyxservicioController.selected.estadoservicio eq 'I'}"/>
                         <h:outputText value="#{bundle.ViewSegCompanyxservicioLabel_idservicio}"/>
-                        <h:outputText value="#{segCompanyxservicioController.selected.idservicio}" title="#{bundle.ViewSegCompanyxservicioTitle_idservicio}"/>
+                        <h:outputText value="#{segCompanyxservicioController.selected.idservicio.nombreservicio}" title="#{bundle.ViewSegCompanyxservicioTitle_idservicio}"/>
                         <h:outputText value="#{bundle.ViewSegCompanyxservicioLabel_idcompany}"/>
-                        <h:outputText value="#{segCompanyxservicioController.selected.idcompany}" title="#{bundle.ViewSegCompanyxservicioTitle_idcompany}"/>
+                        <h:outputText value="#{segCompanyxservicioController.selected.idcompany.nombrecompany}" title="#{bundle.ViewSegCompanyxservicioTitle_idcompany}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="SegCompanyxservicioViewDialog.hide()"/>
                 </h:panelGroup>

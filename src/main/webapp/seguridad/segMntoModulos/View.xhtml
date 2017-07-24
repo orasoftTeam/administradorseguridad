@@ -15,7 +15,8 @@
                         <h:outputText value="#{bundle.ViewSegMntoModulosLabel_nombremodulo}"/>
                         <h:outputText value="#{segMntoModulosController.selected.nombremodulo}" title="#{bundle.ViewSegMntoModulosTitle_nombremodulo}"/>
                         <h:outputText value="#{bundle.ViewSegMntoModulosLabel_estadomodulo}"/>
-                        <h:outputText value="#{segMntoModulosController.selected.estadomodulo}" title="#{bundle.ViewSegMntoModulosTitle_estadomodulo}"/>
+                        <h:outputText value="ACTIVO" rendered="#{segMntoModulosController.selected.estadomodulo eq 'A'}"/>
+                        <h:outputText value="INACTIVO" rendered="#{segMntoModulosController.selected.estadomodulo eq 'I'}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="SegMntoModulosViewDialog.hide()"/>
                 </h:panelGroup>

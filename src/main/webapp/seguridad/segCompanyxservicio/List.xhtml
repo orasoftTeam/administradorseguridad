@@ -27,12 +27,12 @@
                         <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
                         <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
 
-                        <p:column>
+<!--                        <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListSegCompanyxservicioTitle_idcompanyxservicio}"/>
                             </f:facet>
                             <h:outputText value="#{item.idcompanyxservicio}"/>
-                        </p:column>
+                        </p:column>-->
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListSegCompanyxservicioTitle_preciocomxservicio}"/>
@@ -49,19 +49,20 @@
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListSegCompanyxservicioTitle_estadoservicio}"/>
                             </f:facet>
-                            <h:outputText value="#{item.estadoservicio}"/>
+                            <h:outputText value="ACTIVO" rendered="#{item.estadoservicio eq 'A'}"/>
+                            <h:outputText value="INACTIVO" rendered="#{item.estadoservicio eq 'I'}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListSegCompanyxservicioTitle_idservicio}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idservicio}"/>
+                            <h:outputText value="#{item.idservicio.nombreservicio}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListSegCompanyxservicioTitle_idcompany}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idcompany}"/>
+                            <h:outputText value="#{item.idcompany.nombrecompany}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{segCompanyxservicioController.prepareCreate}" update=":SegCompanyxservicioCreateForm" oncomplete="PF('SegCompanyxservicioCreateDialog').show()"/>

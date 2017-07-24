@@ -12,25 +12,26 @@
             <h:form id="SegCompanyxservicioCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{segCompanyxservicioController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateSegCompanyxservicioLabel_idcompanyxservicio}" for="idcompanyxservicio" />
-                        <p:inputText id="idcompanyxservicio" value="#{segCompanyxservicioController.selected.idcompanyxservicio}" title="#{bundle.CreateSegCompanyxservicioTitle_idcompanyxservicio}" required="true" requiredMessage="#{bundle.CreateSegCompanyxservicioRequiredMessage_idcompanyxservicio}"/>
                         <p:outputLabel value="#{bundle.CreateSegCompanyxservicioLabel_preciocomxservicio}" for="preciocomxservicio" />
                         <p:inputText id="preciocomxservicio" value="#{segCompanyxservicioController.selected.preciocomxservicio}" title="#{bundle.CreateSegCompanyxservicioTitle_preciocomxservicio}" required="true" requiredMessage="#{bundle.CreateSegCompanyxservicioRequiredMessage_preciocomxservicio}"/>
                         <p:outputLabel value="#{bundle.CreateSegCompanyxservicioLabel_horariocomxservicio}" for="horariocomxservicio" />
                         <p:inputText id="horariocomxservicio" value="#{segCompanyxservicioController.selected.horariocomxservicio}" title="#{bundle.CreateSegCompanyxservicioTitle_horariocomxservicio}" required="true" requiredMessage="#{bundle.CreateSegCompanyxservicioRequiredMessage_horariocomxservicio}"/>
-                        <p:outputLabel value="#{bundle.CreateSegCompanyxservicioLabel_estadoservicio}" for="estadoservicio" />
-                        <p:inputText id="estadoservicio" value="#{segCompanyxservicioController.selected.estadoservicio}" title="#{bundle.CreateSegCompanyxservicioTitle_estadoservicio}" required="true" requiredMessage="#{bundle.CreateSegCompanyxservicioRequiredMessage_estadoservicio}"/>
+                        <p:outputLabel value="#{bundle.CreateSegCompanyLabel_estadocompany}" for="estadoComServ" />
+                        <p:selectOneMenu id="estadoComServ" value="#{segCompanyxservicioController.selected.estadoservicio}">
+                            <f:selectItem itemValue="A" itemLabel="Activo"/>
+                            <f:selectItem itemValue="I" itemLabel="Inactivo"/>
+                        </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.CreateSegCompanyxservicioLabel_idservicio}" for="idservicio" />
                         <p:selectOneMenu id="idservicio" value="#{segCompanyxservicioController.selected.idservicio}" required="true" requiredMessage="#{bundle.EditSegCompanyxservicioRequiredMessage_idservicio}">
                             <f:selectItems value="#{segServicioController.itemsAvailableSelectOne}"
                                            var="idservicioItem"
-                                           itemValue="#{idservicioItem}"/>
+                                           itemValue="#{idservicioItem}" itemLabel="#{idservicioItem.nombreservicio}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.CreateSegCompanyxservicioLabel_idcompany}" for="idcompany" />
                         <p:selectOneMenu id="idcompany" value="#{segCompanyxservicioController.selected.idcompany}" required="true" requiredMessage="#{bundle.EditSegCompanyxservicioRequiredMessage_idcompany}">
                             <f:selectItems value="#{segCompanyController.itemsAvailableSelectOne}"
                                            var="idcompanyItem"
-                                           itemValue="#{idcompanyItem}"/>
+                                           itemValue="#{idcompanyItem}" itemLabel="#{idcompanyItem.nombrecompany}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{segCompanyxservicioController.create}" value="#{bundle.Save}" update="display,:SegCompanyxservicioListForm:datalist,:growl" oncomplete="handleSubmit(args,'SegCompanyxservicioCreateDialog');"/>

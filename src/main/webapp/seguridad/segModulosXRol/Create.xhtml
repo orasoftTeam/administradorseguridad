@@ -26,19 +26,19 @@
                         <p:selectOneMenu id="segRolcompany" value="#{segModulosXRolController.selected.segRol}" required="true" requiredMessage="#{bundle.EditSegModulosXRolRequiredMessage_segRolcompany}">
                             <f:selectItems value="#{segRolController.itemsAvailableSelectOne}"
                                            var="segRolItem"
-                                           itemValue="#{segRolItem}"/>
+                                           itemValue="#{segRolItem}" itemLabel="#{segRolItem.nombrerol}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.CreateSegModulosXRolLabel_segMntoModulos}" for="segMntoModulos" />
                         <p:selectOneMenu id="segMntoModulos" value="#{segModulosXRolController.selected.segMntoModulos}" required="true" requiredMessage="#{bundle.EditSegModulosXRolRequiredMessage_segMntoModulos}">
                             <f:selectItems value="#{segMntoModulosController.itemsAvailableSelectOne}"
                                            var="segMntoModulosItem"
-                                           itemValue="#{segMntoModulosItem}"/>
+                                           itemValue="#{segMntoModulosItem}" itemLabel="#{segMntoModulosItem.nombremodulo}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.CreateSegModulosXRolLabel_segCompany}" for="segCompany" />
                         <p:selectOneMenu id="segCompany" value="#{segModulosXRolController.selected.segCompany}" required="true" requiredMessage="#{bundle.EditSegModulosXRolRequiredMessage_segCompany}">
                             <f:selectItems value="#{segCompanyController.itemsAvailableSelectOne}"
                                            var="segCompanyItem"
-                                           itemValue="#{segCompanyItem}"/>
+                                           itemValue="#{segCompanyItem}" itemLabel="#{segCompanyItem.nombrecompany}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{segModulosXRolController.create}" value="#{bundle.Save}" update="display,:SegModulosXRolListForm:datalist,:growl" oncomplete="handleSubmit(args,'SegModulosXRolCreateDialog');"/>

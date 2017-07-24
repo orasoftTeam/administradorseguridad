@@ -37,19 +37,8 @@
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListSegMenusXModuloTitle_estadomenu}"/>
                             </f:facet>
-                            <h:outputText value="#{item.estadomenu}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListSegMenusXModuloTitle_nivel}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.nivel}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListSegMenusXModuloTitle_secuencia}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.secuencia}"/>
+                            <h:outputText value="ACTIVO" rendered="#{item.estadomenu eq 'A'}"/>
+                            <h:outputText value="INACTIVO" rendered="#{item.estadomenu eq 'I'}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
@@ -59,33 +48,15 @@
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListSegMenusXModuloTitle_indforma}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.indforma}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListSegMenusXModuloTitle_codaplic}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.codaplic}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListSegMenusXModuloTitle_indaplica}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.indaplica}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
                                 <h:outputText value="#{bundle.ListSegMenusXModuloTitle_segMntoModulos}"/>
                             </f:facet>
-                            <h:outputText value="#{item.segMntoModulos}"/>
+                            <h:outputText value="#{item.segMntoModulos.nombremodulo}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListSegMenusXModuloTitle_segCompany}"/>
                             </f:facet>
-                            <h:outputText value="#{item.segCompany}"/>
+                            <h:outputText value="#{item.segCompany.nombrecompany}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{segMenusXModuloController.prepareCreate}" update=":SegMenusXModuloCreateForm" oncomplete="PF('SegMenusXModuloCreateDialog').show()"/>
