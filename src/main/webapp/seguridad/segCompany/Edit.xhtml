@@ -12,28 +12,24 @@
             <h:form id="SegCompanyEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="4" rendered="#{segCompanyController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditSegCompanyLabel_idmunicipio}" for="municipio" />
+                        <p:selectOneMenu id="municipio" value="#{segCompanyController.selected.idmunicipio}" required="true" requiredMessage="#{bundle.EditSegCompanyRequiredMessage_idmunicipio}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{segMunicipioController.itemsAvailableSelectOne}"
+                                           var="idmunicipioItem"
+                                           itemValue="#{idmunicipioItem}" itemLabel="#{idmunicipioItem.nombremunicipio}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditSegCompanyLabel_idrubro}" for="rubro" />
+                        <p:selectOneMenu id="rubro" value="#{segCompanyController.selected.idrubro}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{segRubroController.itemsAvailableSelectOne}"
+                                           var="idrubroItem"
+                                           itemValue="#{idrubroItem}" itemLabel="#{idrubroItem.nombrerubro}"/>
+                        </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.EditSegCompanyLabel_nombrecompany}" for="nombrecompany" />
                         <p:inputText id="nombrecompany" value="#{segCompanyController.selected.nombrecompany}" title="#{bundle.EditSegCompanyTitle_nombrecompany}" required="true" requiredMessage="#{bundle.EditSegCompanyRequiredMessage_nombrecompany}"/>
-                        <p:outputLabel value="#{bundle.EditSegCompanyLabel_direccioncompany}" for="direccioncompany" />
-                        <p:inputText id="direccioncompany" value="#{segCompanyController.selected.direccioncompany}" title="#{bundle.EditSegCompanyTitle_direccioncompany}" required="true" requiredMessage="#{bundle.EditSegCompanyRequiredMessage_direccioncompany}"/>
-                        <p:outputLabel value="#{bundle.EditSegCompanyLabel_correocompany}" for="correocompany" />
-                        <p:inputText id="correocompany" value="#{segCompanyController.selected.correocompany}" title="#{bundle.EditSegCompanyTitle_correocompany}" />
-                        <p:outputLabel value="#{bundle.EditSegCompanyLabel_paginaweb}" for="paginaweb" />
-                        <p:inputText id="paginaweb" value="#{segCompanyController.selected.paginaweb}" title="#{bundle.EditSegCompanyTitle_paginaweb}" />
                         <p:outputLabel value="#{bundle.EditSegCompanyLabel_nivelcompany}" for="nivelcompany" />
                         <p:inputText id="nivelcompany" value="#{segCompanyController.selected.nivelcompany}" title="#{bundle.EditSegCompanyTitle_nivelcompany}" />
-                        <p:outputLabel value="#{bundle.EditSegCompanyLabel_numerocompany}" for="numerocompany" />
-                        <p:inputText id="numerocompany" value="#{segCompanyController.selected.numerocompany}" title="#{bundle.EditSegCompanyTitle_numerocompany}" />
-                        <p:outputLabel value="#{bundle.EditSegCompanyLabel_rutalogocompany}" for="rutalogocompany" />
-                        <p:inputText id="rutalogocompany" value="#{segCompanyController.selected.rutalogocompany}" title="#{bundle.EditSegCompanyTitle_rutalogocompany}" />
-                        <p:outputLabel value="#{bundle.EditSegCompanyLabel_latitudcompany}" for="latitudcompany" />
-                        <p:inputText id="latitudcompany" value="#{segCompanyController.selected.latitudcompany}" title="#{bundle.EditSegCompanyTitle_latitudcompany}" />
-                        <p:outputLabel value="#{bundle.EditSegCompanyLabel_longitudcompany}" for="longitudcompany" />
-                        <p:inputText id="longitudcompany" value="#{segCompanyController.selected.longitudcompany}" title="#{bundle.EditSegCompanyTitle_longitudcompany}" />
-                        <p:outputLabel value="#{bundle.EditSegCompanyLabel_diainiciocompany}" for="diainiciocompany" />
-                        <p:inputText id="diainiciocompany" value="#{segCompanyController.selected.diainiciocompany}" title="#{bundle.EditSegCompanyTitle_diainiciocompany}" />
-                        <p:outputLabel value="#{bundle.EditSegCompanyLabel_diafincompany}" for="diafincompany" />
-                        <p:inputText id="diafincompany" value="#{segCompanyController.selected.diafincompany}" title="#{bundle.EditSegCompanyTitle_diafincompany}" />
                         <p:outputLabel value="#{bundle.EditSegCompanyLabel_horainiciocompany}" for="horainiciocompany" />
                         <p:inputText id="horainiciocompany" value="#{segCompanyController.selected.horainiciocompany}" title="#{bundle.EditSegCompanyTitle_horainiciocompany}" required="true" requiredMessage="#{bundle.EditSegCompanyRequiredMessage_horainiciocompany}"/>
                         <p:outputLabel value="#{bundle.EditSegCompanyLabel_horafincompany}" for="horafincompany" />
@@ -42,28 +38,38 @@
                         <p:inputText id="horainicio2company" value="#{segCompanyController.selected.horainicio2company}" title="#{bundle.EditSegCompanyTitle_horainicio2company}" />
                         <p:outputLabel value="#{bundle.EditSegCompanyLabel_horafin2company}" for="horafin2company" />
                         <p:inputText id="horafin2company" value="#{segCompanyController.selected.horafin2company}" title="#{bundle.EditSegCompanyTitle_horafin2company}" />
-                        <p:outputLabel value="#{bundle.EditSegCompanyLabel_estadocompany}" for="estadocompany" />
-                        <!--<p:inputText id="estadocompany" value="#{segCompanyController.selected.estadocompany}" title="#{bundle.EditSegCompanyTitle_estadocompany}" />-->
+                        <p:outputLabel value="#{bundle.EditSegCompanyLabel_diainiciocompany}" for="diainiciocompany" />
+                        <p:inputText id="diainiciocompany" value="#{segCompanyController.selected.diainiciocompany}" title="#{bundle.EditSegCompanyTitle_diainiciocompany}" />
+                        <p:outputLabel value="#{bundle.EditSegCompanyLabel_diafincompany}" for="diafincompany" />
+                        <p:inputText id="diafincompany" value="#{segCompanyController.selected.diafincompany}" title="#{bundle.EditSegCompanyTitle_diafincompany}" />
+                        <p:outputLabel value="#{bundle.EditSegCompanyLabel_numerocompany}" for="numerocompany" />
+                        <p:inputText id="numerocompany" value="#{segCompanyController.selected.numerocompany}" title="#{bundle.EditSegCompanyTitle_numerocompany}" />
+                        <p:outputLabel value="#{bundle.EditSegCompanyLabel_correocompany}" for="correocompany" />
+                        <p:inputText id="correocompany" value="#{segCompanyController.selected.correocompany}" title="#{bundle.EditSegCompanyTitle_correocompany}" />
+                        <p:outputLabel value="#{bundle.EditSegCompanyLabel_rutalogocompany}" for="rutalogocompany" />
+                        <p:inputText id="rutalogocompany" value="#{segCompanyController.selected.rutalogocompany}" title="#{bundle.EditSegCompanyTitle_rutalogocompany}" />
+                        <p:outputLabel value="#{bundle.EditSegCompanyLabel_paginaweb}" for="paginaweb" />
+                        <p:inputText id="paginaweb" value="#{segCompanyController.selected.paginaweb}" title="#{bundle.EditSegCompanyTitle_paginaweb}" />
+                        <p:outputLabel value="#{bundle.EditSegCompanyLabel_latitudcompany}" for="latitudcompany" />
+                        <p:inputText id="latitudcompany" value="#{segCompanyController.selected.latitudcompany}" title="#{bundle.EditSegCompanyTitle_latitudcompany}" />
+                        <p:outputLabel value="#{bundle.EditSegCompanyLabel_longitudcompany}" for="longitudcompany" />
+                        <p:inputText id="longitudcompany" value="#{segCompanyController.selected.longitudcompany}" title="#{bundle.EditSegCompanyTitle_longitudcompany}" />
+                        <p:outputLabel value="#{bundle.EditSegMntoModulosLabel_estadomodulo}" for="estadocompany" />
+                        <p:selectOneMenu id="estadocompany" value="#{segCompanyController.selected.estadocompany}" >
+                            <f:selectItem itemValue="A" itemLabel="Activo"/>
+                            <f:selectItem itemValue="I" itemLabel="Inactivo"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="" />
+                        <p:outputLabel value="" />
+                        
+                        <p:outputLabel value="#{bundle.EditSegCompanyLabel_direccioncompany}" for="direccioncompany" />
+                        <p:inputTextarea id="direccioncompany" value="#{segCompanyController.selected.direccioncompany}" title="#{bundle.EditSegCompanyTitle_direccioncompany}" required="true" requiredMessage="#{bundle.EditSegCompanyRequiredMessage_direccioncompany}"/>
                         <p:outputLabel value="#{bundle.EditSegCompanyLabel_visioncompany}" for="visioncompany" />
                         <p:inputTextarea rows="4" cols="30" id="visioncompany" value="#{segCompanyController.selected.visioncompany}" title="#{bundle.EditSegCompanyTitle_visioncompany}" />
                         <p:outputLabel value="#{bundle.EditSegCompanyLabel_misioncompany}" for="misioncompany" />
                         <p:inputTextarea rows="4" cols="30" id="misioncompany" value="#{segCompanyController.selected.misioncompany}" title="#{bundle.EditSegCompanyTitle_misioncompany}" />
                         <p:outputLabel value="#{bundle.EditSegCompanyLabel_descripcioncompany}" for="descripcioncompany" />
                         <p:inputTextarea rows="4" cols="30" id="descripcioncompany" value="#{segCompanyController.selected.descripcioncompany}" title="#{bundle.EditSegCompanyTitle_descripcioncompany}" />
-                        <p:outputLabel value="#{bundle.EditSegCompanyLabel_idrubro}" for="rubro" />
-                        <p:selectOneMenu id="rubro" value="#{segCompanyController.selected.idrubro}" required="true" requiredMessage="#{bundle.EditSegCompanyRequiredMessage_idrubro}">
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{segRubroController.itemsAvailableSelectOne}"
-                                           var="idrubroItem"
-                                           itemValue="#{idrubroItem}" itemLabel="#{idrubroItem.nombrerubro}"/>
-                        </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.EditSegCompanyLabel_idmunicipio}" for="municipio" />
-                        <p:selectOneMenu id="municipio" value="#{segCompanyController.selected.idmunicipio}" required="true" requiredMessage="#{bundle.EditSegCompanyRequiredMessage_idmunicipio}">
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{segMunicipioController.itemsAvailableSelectOne}"
-                                           var="idmunicipioItem"
-                                           itemValue="#{idmunicipioItem}" itemLabel="#{idmunicipioItem.nombremunicipio}"/>
-                        </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{segCompanyController.update}" value="#{bundle.Save}" update="display,:SegCompanyListForm:datalist,:growl" oncomplete="handleSubmit(args, 'SegCompanyEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="SegCompanyEditDialog.hide()"/>
