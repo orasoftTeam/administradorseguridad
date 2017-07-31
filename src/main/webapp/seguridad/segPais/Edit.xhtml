@@ -13,7 +13,12 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{segPaisController.selected != null}">
                         <p:outputLabel value="#{bundle.EditSegPaisLabel_nombrepais}" for="nombrepais" />
-                        <p:inputText id="nombrepais" value="#{segPaisController.selected.nombrepais}" title="#{bundle.EditSegPaisTitle_nombrepais}" required="true" requiredMessage="#{bundle.EditSegPaisRequiredMessage_nombrepais}"/>
+                        <p:inputText id="nombrepais" value="#{segPaisController.selected.nombrepais}" 
+                                     title="#{bundle.EditSegPaisTitle_nombrepais}" required="true" 
+                                     requiredMessage="#{bundle.EditSegPaisRequiredMessage_nombrepais}"
+                                     validatorMessage="#{bundle.lblLetras}">
+                            <f:validateRegex pattern="^[a-zA-ZñÑÁÉÍÓÚáéíóú x0BF]+$" />
+                        </p:inputText>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{segPaisController.update}" value="#{bundle.Save}" update="display,:SegPaisListForm:datalist,:growl" oncomplete="handleSubmit(args, 'SegPaisEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="SegPaisEditDialog.hide()"/>

@@ -13,7 +13,12 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{segRolController.selected != null}">
                         <p:outputLabel value="#{bundle.CreateSegRolLabel_nombrerol}" for="nombrerol" />
-                        <p:inputText id="nombrerol" value="#{segRolController.selected.nombrerol}" title="#{bundle.CreateSegRolTitle_nombrerol}" required="true" requiredMessage="#{bundle.CreateSegRolRequiredMessage_nombrerol}"/>
+                        <p:inputText id="nombrerol" value="#{segRolController.selected.nombrerol}" 
+                                     title="#{bundle.CreateSegRolTitle_nombrerol}" required="true" 
+                                     requiredMessage="#{bundle.CreateSegRolRequiredMessage_nombrerol}"
+                                     validatorMessage="#{bundle.lblLetras}">
+                                     <f:validateRegex pattern="^[a-zA-Z]+$" />
+                        </p:inputText>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{segRolController.create}" value="#{bundle.Save}" update="display,:SegRolListForm:datalist,:growl" oncomplete="handleSubmit(args,'SegRolCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="SegRolCreateDialog.hide()"/>

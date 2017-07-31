@@ -7,7 +7,6 @@
       xmlns:p="http://primefaces.org/ui">
 
     <ui:composition>
-
         <p:dialog id="SegRolusuarioCreateDlg" widgetVar="SegRolusuarioCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateSegRolusuarioTitle}">
             <h:form id="SegRolusuarioCreateForm">
                 <h:panelGroup id="display">
@@ -17,16 +16,18 @@
                         <p:selectOneMenu id="idusuario" value="#{segRolusuarioController.selected.idusuario}" required="true" requiredMessage="#{bundle.EditSegRolusuarioRequiredMessage_idusuario}">
                             <f:selectItems value="#{segUsuarioController.itemsAvailableSelectOne}"
                                            var="idusuarioItem"
-                                           itemValue="#{idusuarioItem} " itemLabel="#{idusuarioItem.nombreusuario}"/>
+                                           itemValue="#{idusuarioItem}"  itemLabel="#{idusuarioItem.nombreusuario}"/>
                         </p:selectOneMenu>
                         
                         <p:outputLabel value="#{bundle.CreateSegRolusuarioLabel_idrol}" for="idrol" />
                         <p:selectOneMenu id="idrol" value="#{segRolusuarioController.selected.idrol}" required="true" requiredMessage="#{bundle.EditSegRolusuarioRequiredMessage_idrol}">
                             <f:selectItems value="#{segRolController.itemsAvailableSelectOne}"
                                            var="idrolItem"
-                                           itemValue="#{idrolItem}" itemLabel="#{idrolItem.nombrerol}"/>
+                                           itemValue="#{idrolItem}" itemLabel="#{idrolItem.nombrerol
+}" />
                         </p:selectOneMenu>
                     </p:panelGrid>
+                    
                     <p:commandButton actionListener="#{segRolusuarioController.create}" value="#{bundle.Save}" update="display,:SegRolusuarioListForm:datalist,:growl" oncomplete="handleSubmit(args,'SegRolusuarioCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="SegRolusuarioCreateDialog.hide()"/>
                 </h:panelGroup>

@@ -21,9 +21,20 @@
                         </p:selectOneMenu>
                         
                         <p:outputLabel value="#{bundle.EditSegServicioLabel_nombreservicio}" for="nombreservicio" />
-                        <p:inputText id="nombreservicio" value="#{segServicioController.selected.nombreservicio}" title="#{bundle.EditSegServicioTitle_nombreservicio}" required="true" requiredMessage="#{bundle.EditSegServicioRequiredMessage_nombreservicio}"/>
+                        <p:inputText id="nombreservicio" value="#{segServicioController.selected.nombreservicio}" 
+                                     title="#{bundle.EditSegServicioTitle_nombreservicio}" required="true" 
+                                     requiredMessage="#{bundle.EditSegServicioRequiredMessage_nombreservicio}"
+                                     validatorMessage="#{bundle.lblLetras}">
+                                     <f:validateRegex pattern="^[a-zA-ZñÑÁÉÍÓÚáéíóú x0BF]+$" />
+                        </p:inputText>
+                        
                         <p:outputLabel value="#{bundle.EditSegServicioLabel_requisitos}" for="requisitos" />
-                        <p:inputText id="requisitos" value="#{segServicioController.selected.requisitos}" title="#{bundle.EditSegServicioTitle_requisitos}" required="true" requiredMessage="#{bundle.EditSegServicioRequiredMessage_requisitos}"/>
+                        <p:inputTextarea id="requisitos" value="#{segServicioController.selected.requisitos}" 
+                                     title="#{bundle.EditSegServicioTitle_requisitos}" required="true" 
+                                     requiredMessage="#{bundle.EditSegServicioRequiredMessage_requisitos}"
+                                     validatorMessage="#{bundle.lblVpermitido}">
+                            <f:validateRegex pattern="^[\wñÑÁÉÍÓÚáéíóú:;+,.()* x0BF]+$" />
+                        </p:inputTextarea>
                         
                     </p:panelGrid>
                     <p:commandButton actionListener="#{segServicioController.update}" value="#{bundle.Save}" update="display,:SegServicioListForm:datalist,:growl" oncomplete="handleSubmit(args, 'SegServicioEditDialog');"/>

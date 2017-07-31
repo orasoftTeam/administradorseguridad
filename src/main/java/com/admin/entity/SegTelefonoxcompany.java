@@ -14,6 +14,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
@@ -54,6 +56,13 @@ public class SegTelefonoxcompany implements Serializable {
     @Size(min = 1, max = 15)
     @Column(name = "NUMEROTELEFONO")
     private String numerotelefono;
+    @JoinColumn(name = "IDCOMPANY", referencedColumnName = "IDCOMPANY", insertable = false, updatable = false)
+    @ManyToOne(optional = false)
+    private SegCompany segCompany;
+    
+    
+    
+    
 
     public SegTelefonoxcompany() {
     }
@@ -91,6 +100,13 @@ public class SegTelefonoxcompany implements Serializable {
 
     public void setNumerotelefono(String numerotelefono) {
         this.numerotelefono = numerotelefono;
+    }
+    public SegCompany getSegCompany() {
+        return segCompany;
+    }
+
+    public void setSegCompany(SegCompany segCompany) {
+        this.segCompany = segCompany;
     }
 
     @Override

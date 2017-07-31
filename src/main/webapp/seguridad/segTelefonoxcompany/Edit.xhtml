@@ -14,7 +14,14 @@
                     <p:panelGrid columns="2" rendered="#{segTelefonoxcompanyController.selected != null}">
                         
                         <p:outputLabel value="#{bundle.EditSegTelefonoxcompanyLabel_idcompany}" for="idcompany" />
-                        <p:inputText id="idcompany" value="#{segTelefonoxcompanyController.selected.idcompany}" title="#{bundle.EditSegTelefonoxcompanyTitle_idcompany}" required="true" requiredMessage="#{bundle.EditSegTelefonoxcompanyRequiredMessage_idcompany}"/>
+                        <p:selectOneMenu id="idcompany" value="#{segTelefonoxcompanyController.selected.idcompany}" required="true" requiredMessage="#{bundle.EditSegTelefonoxcompanyRequiredMessage_idcompany}">
+                            <f:selectItems value="#{segCompanyController.itemsAvailableSelectOne}"
+                             var="idcompanyItem"
+                            itemValue="#{idcompanyItem.idcompany}" itemLabel="#{idcompanyItem.nombrecompany}"/>
+                        </p:selectOneMenu>  
+                        
+                        
+                        
                         <p:outputLabel value="#{bundle.EditSegTelefonoxcompanyLabel_numerotelefono}" for="numerotelefono" />
                         <p:inputText id="numerotelefono" value="#{segTelefonoxcompanyController.selected.numerotelefono}" title="#{bundle.EditSegTelefonoxcompanyTitle_numerotelefono}" required="true" requiredMessage="#{bundle.EditSegTelefonoxcompanyRequiredMessage_numerotelefono}"/>
                     </p:panelGrid>

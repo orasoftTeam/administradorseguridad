@@ -15,7 +15,12 @@
                         
                         
                         <p:outputLabel value="#{bundle.CreateSegPaisLabel_nombrepais}" for="nombrepais" />
-                        <p:inputText id="nombrepais" value="#{segPaisController.selected.nombrepais}" title="#{bundle.CreateSegPaisTitle_nombrepais}" required="true" requiredMessage="#{bundle.CreateSegPaisRequiredMessage_nombrepais}"/>
+                        <p:inputText id="nombrepais" value="#{segPaisController.selected.nombrepais}" 
+                                     title="#{bundle.CreateSegPaisTitle_nombrepais}" required="true" 
+                                     requiredMessage="#{bundle.CreateSegPaisRequiredMessage_nombrepais}"
+                                     validatorMessage="#{bundle.lblLetras}">
+                            <f:validateRegex pattern="^[a-zA-ZñÑÁÉÍÓÚáéíóú x0BF]+$" />
+                        </p:inputText>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{segPaisController.create}" value="#{bundle.Save}" update="display,:SegPaisListForm:datalist,:growl" oncomplete="handleSubmit(args,'SegPaisCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="SegPaisCreateDialog.hide()"/>

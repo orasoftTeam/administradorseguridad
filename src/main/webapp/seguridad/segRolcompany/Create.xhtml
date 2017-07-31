@@ -12,6 +12,7 @@
             <h:form id="SegRolcompanyCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{segRolcompanyController.selected != null}">
+                        
                         <p:outputLabel value="#{bundle.CreateSegRolcompanyLabel_idcompany}" for="idcompany" />
                         <p:selectOneMenu id="idcompany" value="#{segRolcompanyController.selected.idcompany}" required="true" requiredMessage="#{bundle.EditSegRolcompanyRequiredMessage_idcompany}">
                             <f:selectItems value="#{segCompanyController.itemsAvailableSelectOne}"
@@ -27,7 +28,12 @@
                         
                                                 
                         <p:outputLabel value="#{bundle.CreateSegRolcompanyLabel_nombrerolcia}" for="nombrerolcia" />
-                        <p:inputText id="nombrerolcia" value="#{segRolcompanyController.selected.nombrerolcia}" required="true" title="#{bundle.CreateSegRolcompanyTitle_nombrerolcia}" />
+                        <p:inputText id="nombrerolcia" value="#{segRolcompanyController.selected.nombrerolcia}" 
+                                      title="#{bundle.CreateSegRolcompanyTitle_nombrerolcia}" required="true" 
+                                      requiredMessage="#{bundle.CreateSegRolcompanyRequiredMessage_nombrerolcia}"
+                                      validatorMessage="#{bundle.lblLetras}">
+                                      <f:validateRegex pattern="^[a-zA-ZñÑÁÉÍÓÚáéíóú x0BF]+$" />
+                        </p:inputText>
                         
                         
                     </p:panelGrid>
@@ -39,3 +45,4 @@
 
     </ui:composition>
 </html>
+

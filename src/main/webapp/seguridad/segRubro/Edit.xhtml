@@ -14,7 +14,12 @@
                     <p:panelGrid columns="2" rendered="#{segRubroController.selected != null}">
                         
                         <p:outputLabel value="#{bundle.EditSegRubroLabel_nombrerubro}" for="nombrerubro" />
-                        <p:inputText id="nombrerubro" value="#{segRubroController.selected.nombrerubro}" title="#{bundle.EditSegRubroTitle_nombrerubro}" required="true" requiredMessage="#{bundle.EditSegRubroRequiredMessage_nombrerubro}"/>
+                        <p:inputText id="nombrerubro" value="#{segRubroController.selected.nombrerubro}" 
+                                     title="#{bundle.EditSegRubroTitle_nombrerubro}" required="true" 
+                                     requiredMessage="#{bundle.EditSegRubroRequiredMessage_nombrerubro}"
+                                      validatorMessage="#{bundle.lblLetras}">
+                                      <f:validateRegex pattern="^[a-zA-ZñÑÁÉÍÓÚáéíóú x0BF]+$" />
+                        </p:inputText>    
                     </p:panelGrid>
                     <p:commandButton actionListener="#{segRubroController.update}" value="#{bundle.Save}" update="display,:SegRubroListForm:datalist,:growl" oncomplete="handleSubmit(args, 'SegRubroEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="SegRubroEditDialog.hide()"/>

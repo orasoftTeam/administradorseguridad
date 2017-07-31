@@ -14,14 +14,22 @@
                     <p:panelGrid columns="2" rendered="#{segTelefonoxcompanyController.selected != null}">
                         
                         <p:outputLabel value="#{bundle.CreateSegTelefonoxcompanyLabel_idcompany}" for="idcompany" />
-                        <p:selectOneMenu id="idcompany" value="#{segTelefonoxcompanyController.selected.idcompany}" required="true" requiredMessage="#{bundle.EditSegTelefonoxcompanyRequiredMessage_idcompany}">
+                        <p:selectOneMenu id="idcompany" value="#{segTelefonoxcompanyController.selected.idcompany}" 
+                                         required="true" requiredMessage="#{bundle.EditSegTelefonoxcompanyRequiredMessage_idcompany}">
                             <f:selectItems value="#{segCompanyController.itemsAvailableSelectOne}"
                                            var="idcompanyItem"
                                            itemValue="#{idcompanyItem.idcompany}" itemLabel="#{idcompanyItem.nombrecompany}"/>
                         </p:selectOneMenu>                   
                      
                         <p:outputLabel value="#{bundle.CreateSegTelefonoxcompanyLabel_numerotelefono}" for="numerotelefono" />
-                        <p:inputText id="numerotelefono" value="#{segTelefonoxcompanyController.selected.numerotelefono}" title="#{bundle.CreateSegTelefonoxcompanyTitle_numerotelefono}" required="true" requiredMessage="#{bundle.CreateSegTelefonoxcompanyRequiredMessage_numerotelefono}"/>
+                        <p:inputMask id="numerotelefono" 
+                                     value="#{segTelefonoxcompanyController.selected.numerotelefono}" 
+                                     title="#{bundle.CreateSegTelefonoxcompanyTitle_numerotelefono}" 
+                                     required="true" requiredMessage="#{bundle.CreateSegTelefonoxcompanyRequiredMessage_numerotelefono}"
+                                     mask="9999-9999"
+                                     validatorMessage="#{bundle.lblFormato}">
+                            <f:validateRegex pattern="^(2|7|6)+(\d)+(\d)+(\d)+-+(\d)+(\d)+(\d)+$" />
+                        </p:inputMask>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{segTelefonoxcompanyController.create}" value="#{bundle.Save}" update="display,:SegTelefonoxcompanyListForm:datalist,:growl" oncomplete="handleSubmit(args,'SegTelefonoxcompanyCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="SegTelefonoxcompanyCreateDialog.hide()"/>

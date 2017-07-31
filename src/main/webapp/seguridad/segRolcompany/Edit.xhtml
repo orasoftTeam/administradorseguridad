@@ -21,17 +21,18 @@
                         </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.EditSegRolcompanyLabel_estadorolcia}" for="estadorolcia" />
                        
-                        <h:selectOneMenu  id="estadorolcia" value="#{segRolcompanyController.selected.estadorolcia}">
+                        <p:selectOneMenu  id="estadorolcia" value="#{segRolcompanyController.selected.estadorolcia}">
    			<f:selectItem itemValue="A" itemLabel="Activo" />
    			<f:selectItem itemValue="I" itemLabel="Inactivo" />
-   		        </h:selectOneMenu>
-                        
-                        
-                        
-                        
-                        
+   		        </p:selectOneMenu>
+                                          
                         <p:outputLabel value="#{bundle.EditSegRolcompanyLabel_nombrerolcia}" for="nombrerolcia" />
-                        <p:inputText id="nombrerolcia" value="#{segRolcompanyController.selected.nombrerolcia}" required="true" title="#{bundle.EditSegRolcompanyTitle_nombrerolcia}" />
+                        <p:inputText id="nombrerolcia" value="#{segRolcompanyController.selected.nombrerolcia}" 
+                                     title="#{bundle.EditSegRolcompanyTitle_nombrerolcia}" required="true" 
+                                     requiredMessage="#{bundle.CreateSegRolcompanyRequiredMessage_nombrerolcia}"
+                                      validatorMessage="#{bundle.lblLetras}">
+                                     <f:validateRegex pattern="^[a-zA-ZñÑÁÉÍÓÚáéíóú x0BF]+$" />
+                        </p:inputText>
                         
 
                     </p:panelGrid>

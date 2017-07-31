@@ -14,7 +14,8 @@
                     <p:panelGrid columns="2" rendered="#{segTelefonoxcompanyController.selected != null}">
                         
                         <h:outputText value="#{bundle.ViewSegTelefonoxcompanyLabel_idcompany}"/>
-                        <h:outputText value="#{segTelefonoxcompanyController.selected.idcompany}" title="#{bundle.ViewSegTelefonoxcompanyTitle_idcompany}"/>
+                        <h:outputText value="#{segTelefonoxcompanyController.selected.segCompany.nombrecompany}" title="#{bundle.ViewSegTelefonoxcompanyTitle_idcompany}"/>
+                        
                         <h:outputText value="#{bundle.ViewSegTelefonoxcompanyLabel_numerotelefono}"/>
                         <h:outputText value="#{segTelefonoxcompanyController.selected.numerotelefono}" title="#{bundle.ViewSegTelefonoxcompanyTitle_numerotelefono}"/>
                     </p:panelGrid>

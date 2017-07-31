@@ -32,8 +32,10 @@
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListSegTelefonoxcompanyTitle_idcompany}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idcompany}" />
+                            <h:outputText value="#{item.segCompany.nombrecompany}" />
                         </p:column>
+                        
+                                              
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListSegTelefonoxcompanyTitle_numerotelefono}"/>
