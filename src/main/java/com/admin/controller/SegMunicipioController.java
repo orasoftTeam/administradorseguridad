@@ -4,6 +4,8 @@ import com.admin.entity.SegMunicipio;
 import com.admin.util.JsfUtil;
 import com.admin.util.JsfUtil.PersistAction;
 import com.admin.facade.SegMunicipioFacade;
+import com.admin.form.MunicipioForm;
+import com.admin.validator.ValidationBean;
 
 import java.io.Serializable;
 import java.util.List;
@@ -18,10 +20,14 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+import lombok.Getter;
+import lombok.Setter;
 
 @Named("segMunicipioController")
 @SessionScoped
 public class SegMunicipioController implements Serializable {
+
+   
 
     @EJB
     private com.admin.facade.SegMunicipioFacade ejbFacade;
@@ -55,11 +61,15 @@ public class SegMunicipioController implements Serializable {
         return selected;
     }
 
+    
+
     public void create() {
-        persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("SegMunicipioCreated"));
-        if (!JsfUtil.isValidationFailed()) {
-            items = null;    // Invalidate list of items to trigger re-query.
-        }
+       
+            persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("SegMunicipioCreated"));
+            if (!JsfUtil.isValidationFailed()) {
+                items = null;    // Invalidate list of items to trigger re-query.
+            }
+        
     }
 
     public void update() {
@@ -161,5 +171,4 @@ public class SegMunicipioController implements Serializable {
         }
 
     }
-
 }

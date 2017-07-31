@@ -13,7 +13,10 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{segMunicipioController.selected != null}">
                         <p:outputLabel value="#{bundle.EditSegMunicipioLabel_nombremunicipio}" for="nombremunicipio" />
-                        <p:inputText id="nombremunicipio" value="#{segMunicipioController.selected.nombremunicipio}" title="#{bundle.EditSegMunicipioTitle_nombremunicipio}" required="true" requiredMessage="#{bundle.EditSegMunicipioRequiredMessage_nombremunicipio}"/>
+                        <p:inputText id="nombremunicipio" value="#{segMunicipioController.selected.nombremunicipio}" title="#{bundle.EditSegMunicipioTitle_nombremunicipio}" 
+                                     required="true" requiredMessage="#{bundle.EditSegMunicipioRequiredMessage_nombremunicipio}" validatorMessage="#{bundle.lblLetras}">
+                            <f:validateRegex pattern="^[A-Z-a-zñÑáéíóúÁÉÍÓÚ x0Bf]*" for="nombremunicipio"/>
+                        </p:inputText>
                         <p:outputLabel value="#{bundle.EditSegMunicipioLabel_iddepartamento}" for="iddepartamento" />
                         <p:selectOneMenu id="iddepartamento" value="#{segMunicipioController.selected.iddepartamento}" required="true" requiredMessage="#{bundle.EditSegMunicipioRequiredMessage_iddepartamento}">
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>

@@ -44,7 +44,7 @@ public class SegRol implements Serializable {
     @Basic(optional = false)
     @NotNull
     @GeneratedValue (strategy = GenerationType.SEQUENCE, generator="ROL_SEQ")
-    @SequenceGenerator(name = "ROL_SEQ", sequenceName = "sqe_idrol" , allocationSize = 1)
+    @SequenceGenerator(name = "ROL_SEQ", sequenceName = "SQE_IDROL" , allocationSize = 1)
     @Column(name = "IDROL")
     private BigDecimal idrol;
     @Basic(optional = false)

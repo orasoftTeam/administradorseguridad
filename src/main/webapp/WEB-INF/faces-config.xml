@@ -9,4 +9,9 @@
             <var>bundle</var>
         </resource-bundle>
     </application>
+    
+<!--    <validator>
+        <validator-id>validador</validator-id>
+        <validator-class>com.admin.validator.ValidatorBean</validator-class>
+    </validator>-->
 </faces-config>

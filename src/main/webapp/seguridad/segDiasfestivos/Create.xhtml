@@ -13,7 +13,10 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{segDiasfestivosController.selected != null}">
                         <p:outputLabel value="#{bundle.CreateSegDiasfestivosLabel_nombrediafestivos}" for="nombrediafestivos" />
-                        <p:inputText id="nombrediafestivos" value="#{segDiasfestivosController.selected.nombrediafestivos}" title="#{bundle.CreateSegDiasfestivosTitle_nombrediafestivos}" required="true" requiredMessage="#{bundle.CreateSegDiasfestivosRequiredMessage_nombrediafestivos}"/>
+                        <p:inputText id="nombrediafestivos" value="#{segDiasfestivosController.selected.nombrediafestivos}" title="#{bundle.CreateSegDiasfestivosTitle_nombrediafestivos}" 
+                                     required="true" requiredMessage="#{bundle.CreateSegDiasfestivosRequiredMessage_nombrediafestivos}" validatorMessage="#{bundle.lblLetras}">
+                            <f:validateRegex pattern="^[A-Z-a-zñÑáéíóúÁÉÍÓÚ x0Bf]*" for="nombrediafestivo"/>
+                        </p:inputText>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{segDiasfestivosController.create}" value="#{bundle.Save}" update="display,:SegDiasfestivosListForm:datalist,:growl" oncomplete="handleSubmit(args,'SegDiasfestivosCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="SegDiasfestivosCreateDialog.hide()"/>

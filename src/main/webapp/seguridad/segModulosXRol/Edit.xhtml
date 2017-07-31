@@ -13,7 +13,10 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{segModulosXRolController.selected != null}">
                         <p:outputLabel value="#{bundle.EditSegModulosXRolLabel_opcion}" for="opcion" />
-                        <p:inputText id="opcion" value="#{segModulosXRolController.selected.opcion}" title="#{bundle.EditSegModulosXRolTitle_opcion}" />
+                        <p:inputText id="opcion" value="#{segModulosXRolController.selected.opcion}" title="#{bundle.EditSegModulosXRolTitle_opcion}" 
+                                     validatorMessage="#{bundle.lblLetras}">
+                            <f:validateRegex pattern="^[A-Z-a-zñÑáéíóúÁÉÍÓÚ x0Bf]*" for="opcion"/>
+                        </p:inputText>
                         <p:outputLabel value="#{bundle.EditSegModulosXRolLabel_segRolcompany}" for="segRolcompany" />
                         <p:selectOneMenu id="segRolcompany" value="#{segModulosXRolController.selected.segRol}" required="true" requiredMessage="#{bundle.EditSegModulosXRolRequiredMessage_segRolcompany}">
                             <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>

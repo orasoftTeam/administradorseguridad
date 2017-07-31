@@ -6,6 +6,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
+
     <ui:composition>
 
         <p:dialog id="SegMunicipioCreateDlg" widgetVar="SegMunicipioCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateSegMunicipioTitle}">
@@ -13,7 +14,11 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{segMunicipioController.selected != null}">
                         <p:outputLabel value="#{bundle.CreateSegMunicipioLabel_nombremunicipio}" for="nombremunicipio" />
-                        <p:inputText id="nombremunicipio" value="#{segMunicipioController.selected.nombremunicipio}" title="#{bundle.CreateSegMunicipioTitle_nombremunicipio}" required="true" requiredMessage="#{bundle.CreateSegMunicipioRequiredMessage_nombremunicipio}"/>
+                        <p:inputText id="nombremunicipio" value="#{segMunicipioController.selected.nombremunicipio}" title="#{bundle.CreateSegMunicipioTitle_nombremunicipio}"
+                                     required="true" requiredMessage="#{bundle.CreateSegMunicipioRequiredMessage_nombremunicipio}" validatorMessage="#{bundle.lblLetras}">
+                            <f:validateRegex pattern="^[A-Z-a-zñÑáéíóúÁÉÍÓÚ x0Bf]*" for="nombremunicipio"/>
+                            <!--<f:validator validatorId="validador"></f:validator>-->
+                        </p:inputText>
                         <p:outputLabel value="#{bundle.CreateSegMunicipioLabel_iddepartamento}" for="iddepartamento" />
                         <p:selectOneMenu id="iddepartamento" value="#{segMunicipioController.selected.iddepartamento}" required="true" requiredMessage="#{bundle.EditSegMunicipioRequiredMessage_iddepartamento}">
                             <f:selectItems value="#{segDepartamentoController.itemsAvailableSelectOne}"

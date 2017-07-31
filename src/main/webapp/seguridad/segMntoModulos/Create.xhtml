@@ -13,7 +13,10 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{segMntoModulosController.selected != null}">
                         <p:outputLabel value="#{bundle.CreateSegMntoModulosLabel_nombremodulo}" for="nombremodulo" />
-                        <p:inputText id="nombremodulo" value="#{segMntoModulosController.selected.nombremodulo}" title="#{bundle.CreateSegMntoModulosTitle_nombremodulo}" required="true" requiredMessage="#{bundle.CreateSegDepartamentoRequiredMessage_nombreModelo}"/>
+                        <p:inputText id="nombremodulo" value="#{segMntoModulosController.selected.nombremodulo}" title="#{bundle.CreateSegMntoModulosTitle_nombremodulo}" 
+                                     required="true" requiredMessage="#{bundle.CreateSegDepartamentoRequiredMessage_nombreModelo}" validatorMessage="#{bundle.lblLetras}">
+                            <f:validateRegex pattern="^[A-Z-a-zñÑáéíóúÁÉÍÓÚ x0Bf]*" for="nombremodulo"/>
+                        </p:inputText>
                         <p:outputLabel value="#{bundle.EditSegMntoModulosLabel_estadomodulo}" for="estadomodulo" />
                         <p:selectOneMenu id="estadomodulo" value="#{segMntoModulosController.selected.estadomodulo}">
                             <f:selectItem itemValue="A" itemLabel="Activo"/>

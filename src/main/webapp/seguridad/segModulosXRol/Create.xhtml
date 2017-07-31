@@ -13,15 +13,30 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{segModulosXRolController.selected != null}">
                         <p:outputLabel value="#{bundle.CreateSegModulosXRolLabel_secuencia}" for="secuencia" />
-                        <p:inputText id="secuencia" value="#{segModulosXRolController.selected.secuencia}" title="#{bundle.CreateSegModulosXRolTitle_secuencia}" />
+                        <p:inputText id="secuencia" value="#{segModulosXRolController.selected.secuencia}" title="#{bundle.CreateSegModulosXRolTitle_secuencia}"
+                                     validatorMessage="#{bundle.lblNumeros}">
+                            <f:validateRegex pattern="^[0-9]*" for="secuencia"/>
+                        </p:inputText>
                         <p:outputLabel value="#{bundle.CreateSegModulosXRolLabel_nivel}" for="nivel" />
-                        <p:inputText id="nivel" value="#{segModulosXRolController.selected.nivel}" title="#{bundle.CreateSegModulosXRolTitle_nivel}" />
+                        <p:inputText id="nivel" value="#{segModulosXRolController.selected.nivel}" title="#{bundle.CreateSegModulosXRolTitle_nivel}"
+                                     validatorMessage="#{bundle.lblNumeros}">
+                            <f:validateRegex pattern="^[0-9]*" for="nivel"/>
+                        </p:inputText>
                         <p:outputLabel value="#{bundle.CreateSegModulosXRolLabel_indforma}" for="indforma" />
-                        <p:inputText id="indforma" value="#{segModulosXRolController.selected.indforma}" title="#{bundle.CreateSegModulosXRolTitle_indforma}" />
+                        <p:inputText id="indforma" value="#{segModulosXRolController.selected.indforma}" title="#{bundle.CreateSegModulosXRolTitle_indforma}" 
+                                     validatorMessage="#{bundle.lblLetras}">
+                            <f:validateRegex pattern="^[A-Z-a-zñÑáéíóúÁÉÍÓÚ x0Bf]*" for="indforma"/>
+                        </p:inputText>
                         <p:outputLabel value="#{bundle.CreateSegModulosXRolLabel_opcion}" for="opcion" />
-                        <p:inputText id="opcion" value="#{segModulosXRolController.selected.opcion}" title="#{bundle.CreateSegModulosXRolTitle_opcion}" />
+                        <p:inputText id="opcion" value="#{segModulosXRolController.selected.opcion}" title="#{bundle.CreateSegModulosXRolTitle_opcion}"
+                                     validatorMessage="#{bundle.lblLetras}">
+                            <f:validateRegex pattern="^[A-Z-a-zñÑáéíóúÁÉÍÓÚ x0Bf]*" for="opcion"/>
+                        </p:inputText>
                         <p:outputLabel value="#{bundle.CreateSegModulosXRolLabel_codaplic}" for="codaplic" />
-                        <p:inputText id="codaplic" value="#{segModulosXRolController.selected.codaplic}" title="#{bundle.CreateSegModulosXRolTitle_codaplic}" />
+                        <p:inputText id="codaplic" value="#{segModulosXRolController.selected.codaplic}" title="#{bundle.CreateSegModulosXRolTitle_codaplic}"
+                                     validatorMessage="#{bundle.lblLetras}">
+                            <f:validateRegex pattern="^[A-Z-a-zñÑáéíóúÁÉÍÓÚ x0Bf]*" for="codaplic"/>
+                        </p:inputText>
                         <p:outputLabel value="#{bundle.CreateSegModulosXRolLabel_segRolcompany}" for="segRolcompany" />
                         <p:selectOneMenu id="segRolcompany" value="#{segModulosXRolController.selected.segRol}" required="true" requiredMessage="#{bundle.EditSegModulosXRolRequiredMessage_segRolcompany}">
                             <f:selectItems value="#{segRolController.itemsAvailableSelectOne}"
